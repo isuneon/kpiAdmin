@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DBSUN_CONNECTION', 'dbsun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,13 +52,13 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => [
+        'kpiadmin' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST_ADMIN', '127.0.0.1'),
+            'port' => env('DB_PORT_ADMIN', '3306'),
+            'database' => env('DB_DATABASE_ADMIN', 'db_kpi_admin_isuneon'),
+            'username' => env('DB_USERNAME_ADMIN', 'root'),
+            'password' => env('DB_PASSWORD_ADMIN', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
@@ -66,16 +66,18 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+        'dbsun' => [
+            'driver' => 'mysql',
+            'host' => env('DBSUN_HOST', '127.0.0.1'),
+            'port' => env('DBSUN_PORT', '3306'),
+            'database' => env('DBSUN_DATABASE', 'db_sun'),
+            'username' => env('DBSUN_USERNAME', 'root'),
+            'password' => env('DBSUN_PASSWORD', ''),
             'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-            'schema' => 'public',
+            'strict' => false,
+            'engine' => null,
         ],
 
     ],
