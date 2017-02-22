@@ -11,15 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/', function() {
- return view('login');
-});
+
+
+
+
+Route::get('/', 'LoginController@index');
+Route::post('login', 'LoginController@login');
 
 /*
 Route::get('/', function() {
  return view('ListaUsuarios');
 });*/
+
+// Route::auth();
+Route::get('/home', 'HomeController@index');
+
+
+// Routes of App
+
+// Route::resource('', '')
+Route::get('/usuarios', function () {
+    return view('ListaUsuarios');
+});
