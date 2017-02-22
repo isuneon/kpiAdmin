@@ -34,3 +34,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/usuarios', function () {
     return view('ListaUsuarios');
 });
+
+
+// Route of notification
+Route::resource('notification', 'admin\NotificationController');

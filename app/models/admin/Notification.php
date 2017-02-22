@@ -19,4 +19,33 @@ class Notification extends Model
 	* @var string
 	*/
 	protected $table = 'admin_notificacion';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+                'name',
+                'descripcion',
+                'activo',
+                'sender_user',
+                'sender_pass',
+                'sender_asunto',
+                'sender_cuerpo',
+                'sender_attach',
+                'sp_nombre_consultar',
+                'sp_parametros_enviar',
+                'sms_send',
+                'sms_numbers',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }
