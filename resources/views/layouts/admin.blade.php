@@ -81,8 +81,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="clearfix">
 </div>
 <!-- BEGIN CONTAINER -->
+<div class="page-container">
 @yield('menuside')
 @yield('content')
+</div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
 <div class="page-footer">

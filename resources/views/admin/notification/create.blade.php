@@ -3,7 +3,7 @@
 @extends('menuside')
 
 @section('content')
-<div class="page-container">
+
 			
 	<!-- BEGIN CONTENT -->
 	<div class="page-content-wrapper">
@@ -147,5 +147,4 @@
 
 <!-- END CONTENT -->
 
-</div>
 @endsection
