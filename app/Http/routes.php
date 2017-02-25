@@ -38,3 +38,7 @@ Route::get('/usuarios', function () {
 
 // Route of notification
 Route::resource('notification', 'admin\NotificationController');
+
+
+// Route of config
+Route::resource('config', 'admin\GeneralConfigController');
