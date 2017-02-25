@@ -83,41 +83,27 @@
 							<table class="table table-striped table-bordered table-hover" id="sample_2">
 							<thead>
 							<tr>
-								<th align="center">name</th>
+								
 								<th align="center">descripcion</th>
-								<th align="center">activo</th>
 								<th align="center">sender_user</th>
 								<th align="center">sender_pass</th>
 								<th align="center">sender_asunto</th>
 								<th align="center">sender_cuerpo</th>
-								<th align="center">sender_attach</th>
-								<th align="center">sp_nombre_consultar</th>
-								<th align="center">sp_parametros_enviar</th>
-								<th align="center">sms_send</th>
-								<th align="center">sms_numbers</th>
 								<th align="center"></th>
 							</tr>
 							</thead>
 
 							<tbody>
 							@foreach ($notifications as $notification)
-							    
 							    <tr>
-									<td >{{ $notification->name }}</td>
 									<td >{{ $notification->descripcion }}</td>
-									<td >{{ $notification->activo }}</td>
 									<td >{{ $notification->sender_user }}</td>
 									<td >{{ $notification->sender_pass }}</td>
 									<td >{{ $notification->sender_asunto }}</td>
 									<td >{{ $notification->sender_cuerpo }}</td>
-									<td >{{ $notification->sender_attach }}</td>
-									<td >{{ $notification->sp_nombre_consultar }}</td>
-									<td >{{ $notification->sp_parametros_enviar }}</td>
-									<td >{{ $notification->sms_send }}</td>
-									<td >{{ $notification->sms_numbers }}</td>
 									<td>
 	                  					<div align="center">
-	                  						<a href="/notification/update">Editar</a> / <a href="#">Eliminar</a>
+	                  						<a href="/notification/{{ $notification->id }}/edit">Editar</a> 
 	                  					</div>
 									</td>
 								</tr>
