@@ -21,24 +21,27 @@ var TableAdvanced = function () {
         var oTable = table.dataTable({
 
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
-            "language": {
-                "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
-                },
-                "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-                "infoEmpty": "No entries found",
-                "infoFiltered": "(filtered1 from _MAX_ total entries)",
-                "lengthMenu": "Show _MENU_ entries",
-                "search": "Search:",
-                "zeroRecords": "No matching records found"
-            },
+            // "language": {
+            //     "aria": {
+            //         "sortAscending": ": activate to sort column ascending",
+            //         "sortDescending": ": activate to sort column descending"
+            //     },
+            //     "emptyTable": "No data available in table",
+            //     "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+            //     "infoEmpty": "No entries found",
+            //     "infoFiltered": "(filtered1 from _MAX_ total entries)",
+            //     "lengthMenu": "Show _MENU_ entries",
+            //     "search": "Search:",
+            //     "zeroRecords": "No matching records found"
+            // },
+
+            //cdn.datatables.net/plug-ins/1.10.13/i18n/English.json
+            //cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json
 
             // Or you can use remote translation file
-            //"language": {
-            //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
-            //},
+            "language": {
+              "url": 'https://cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json'
+            },
 
             "order": [
                 [0, 'asc']
@@ -101,18 +104,22 @@ var TableAdvanced = function () {
         var oTable = table.dataTable({
 
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
-            "language": {
-                "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
-                },
-                "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-                "infoEmpty": "No entries found",
-                "infoFiltered": "(filtered1 from _MAX_ total entries)",
-                "lengthMenu": "Show _MENU_ entries",
-                "search": "Search:",
-                "zeroRecords": "No matching records found"
+            // "language": {
+            //     "aria": {
+            //         "sortAscending": ": activate to sort column ascending",
+            //         "sortDescending": ": activate to sort column descending"
+            //     },
+            //     "emptyTable": "No data available in table",
+            //     "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+            //     "infoEmpty": "No entries found",
+            //     "infoFiltered": "(filtered1 from _MAX_ total entries)",
+            //     "lengthMenu": "Show _MENU_ entries",
+            //     "search": "Search:",
+            //     "zeroRecords": "No matching records found"
+            // },
+
+             "language": {
+              "url": '//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json'
             },
 
             "order": [

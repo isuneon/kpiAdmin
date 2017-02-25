@@ -71,8 +71,8 @@ class NotificationController extends Controller
      */
     public function edit($id)
     {
-        $notifications = Notification::find($id);
-        return view('admin/notification/create', ['notifications' => $notifications]);
+        $notification = Notification::find($id);
+        return view('admin/notification/create', ['notification' => $notification]);
     }
 
     /**
@@ -84,7 +84,24 @@ class NotificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $notification = Notification::find($id);
+
+        $inputs = $request->all();
+        unset($inputs['_token']);
+
+        $notification->sender_user = $inputs['sender_user'];
+        $notification->sender_pass = $inputs['sender_pass'];
+        $notification->sender_asunto = $inputs['sender_asunto'];
+        $notification->descripcion = $inputs['descripcion'];
+        $notification->sender_cuerpo = $inputs['sender_cuerpo'];
+        $notification->save();
+
+        if($notification){
+            return redirect('/notification');
+        }
+
+        return redirect('/notification');
+
     }
 
     /**
