@@ -48,4 +48,11 @@ class Notification extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function emails()
+    {
+        return $this->belongsTo('App\models\admin\Emails', 'id', 'id_notifi');
+    }
+
 }

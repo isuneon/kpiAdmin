@@ -89,6 +89,8 @@
 								<th align="center">sender_pass</th>
 								<th align="center">sender_asunto</th>
 								<th align="center">sender_cuerpo</th>
+								<th align="center">emails</th>
+								
 								<th align="center"></th>
 							</tr>
 							</thead>
@@ -101,6 +103,14 @@
 									<td >{{ $notification->sender_pass }}</td>
 									<td >{{ $notification->sender_asunto }}</td>
 									<td >{{ $notification->sender_cuerpo }}</td>
+
+									@if($notification->emails != null)
+										<td > <a href="/email/{{ $notification->emails->id }}/edit"> {{ $notification->emails->id }} </a></td>
+									@else
+										<td >No posee</td>
+									@endif
+
+
 									<td>
 	                  					<div align="center">
 	                  						<a href="/notification/{{ $notification->id }}/edit">Editar</a> 
