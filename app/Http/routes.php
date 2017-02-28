@@ -42,3 +42,6 @@ Route::resource('notification', 'admin\NotificationController');
 
 // Route of config
 Route::resource('config', 'admin\GeneralConfigController');
+
+// Route of email
+Route::resource('email', 'admin\EmailsController');

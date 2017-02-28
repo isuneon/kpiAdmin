@@ -13,6 +13,8 @@ class Emails extends Model
      */
     protected $connection = 'kpiadmin';
 
+    public $timestamps = false;
+
     /**
 	* The table associated with the model.
 	*
