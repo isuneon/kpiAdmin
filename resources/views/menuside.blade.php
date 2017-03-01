@@ -46,6 +46,9 @@
 					<h3 class="uppercase">Administración</h3>
 				</li>
 				<li>
+					<a href="/config">Configuration</a>
+				</li>
+				<li>
 					<a href="/notification">Notificación</a>
 				</li>
 				<li>
@@ -55,7 +58,7 @@
 					<a href="/notification">Horarios dias</a>
 				</li>
 				<li>
-					<a href="/notification">Correos</a>
+					<a href="/email">Correos</a>
 				</li>
 				<li>
 					<a href="/notification">Horarios config</a>

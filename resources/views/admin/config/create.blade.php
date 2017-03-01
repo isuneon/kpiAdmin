@@ -144,7 +144,10 @@
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
 									<button type="submit" class="btn blue">{{trans('forms.update')}}</button>
+									<a href="/config">
+										
 									<button type="button" class="btn default">{{trans('forms.cancele')}}</button>
+									</a>
 								</div>
 							</form>
 						</div>
