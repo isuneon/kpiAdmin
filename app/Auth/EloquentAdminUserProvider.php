@@ -5,11 +5,7 @@ namespace App\Auth;
 use Illuminate\Auth\EloquentUserProvider;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\Auth\Authenticatable;
-
-
-
-
-
+use App\models\client\UserClient as User;
 
 
 
@@ -22,26 +18,34 @@ class EloquentAdminUserProvider extends EloquentUserProvider
     	//Se busca el usuario con la funcion en base de datos
     	$user = \DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($credentials['email'], $credentials['password']));
 
-
+        
+    
     	if(empty($user)){
     		return null;
     	}
 
-    	
+        
+    	$user = User::find($user[0]->id);
+
+        
 
         // $user = parent::retrieveByCredentials($credentials);
 
      	
-    	return $user[0];
+    	return $user;
     }
 
 
     
     public function validateCredentials(Authenticatable $user, array $credentials)
     {
-        $plain = $credentials['password'];
-        dd($plain);
-
+        
+        $plain = strtoupper($credentials['password']);
+        // echo($plain . '<br>' .$user->getAuthPassword());
+        // dd("g");
+        if($plain == $user->getAuthPassword()){
+            return true;
+        }
         return $this->hasher->check($plain, $user->getAuthPassword());
     }
 
