@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Auth;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Auth\EloquentAdminUserProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        // Binding eloquent.admin to our EloquentAdminUserProvider
+
+      
+
+
+        Auth::provider('eloquent.admin', function($app, array $config) {
+            return new EloquentAdminUserProvider($app['hash'], $config['model']);
+        });
     }
 }

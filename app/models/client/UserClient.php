@@ -3,9 +3,14 @@
 namespace App\models\client;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable; 
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class UserClient extends Model
+class UserClient extends Model implements AuthenticatableContract
 {
+    
+	use Authenticatable;
+
     /**
 	* The connection name for the model.
 	*

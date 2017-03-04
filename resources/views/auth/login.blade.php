@@ -17,7 +17,7 @@
          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
             <label class="control-label visible-ie8 visible-ie9">Nombre de Usuario</label>
-            <input id="email" type="email" class="form-control form-control-solid placeholder-no-fix"  name="email" value="{{ old('email') }}" autocomplete="off" placeholder="Nombre de Usuario"">
+            <input id="email" type="email" class="form-control form-control-solid placeholder-no-fix"  name="email" value="usuario@test.com" autocomplete="off" placeholder="Nombre de Usuario"">
             @if ($errors->has('email'))
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -27,7 +27,7 @@
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label class="control-label visible-ie8 visible-ie9">Contraseña</label>
-            <input id="password" type="password" class="form-control form-control-solid placeholder-no-fix" name="password" autocomplete="off" placeholder="Contraseña">
+            <input id="password" type="password" class="form-control form-control-solid placeholder-no-fix" name="password" value="123456" autocomplete="off" placeholder="Contraseña">
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>

@@ -6,10 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 
 class LoginController extends Controller
 {
+    
+    use AuthenticatesAndRegistersUsers;
+
+    protected $loginView = 'admin.auth.login';
+
+    protected $guard = 'admin';
+
+    protected $redirectTo = null;
+
+
     /**
      * Display a listing of the resource.
      *
@@ -29,12 +40,17 @@ class LoginController extends Controller
     {
 
         $input = $request->all();
+
+        unset($input['_token']);
+
         $input['password'] = hash('sha256', $input['password']);
 
-    	
-        dd(\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
+        
+         (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
 
         if(Auth::attempt($input)){
+            
+            dd($input);
 
         }else{
             return view('auth/login');

@@ -2,10 +2,11 @@
 
 namespace App\models\admin;
 
-use Illuminate\Database\Eloquent\Model;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 
-class User extends Model
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class User extends Authenticatable
 {
     use EntrustUserTrait; // add this trait to your user model
     /**
