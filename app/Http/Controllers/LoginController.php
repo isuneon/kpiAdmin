@@ -49,6 +49,7 @@ class LoginController extends Controller
          (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
 
         if(Auth::attempt($input)){
+            
             dd($input);
 
         }else{
