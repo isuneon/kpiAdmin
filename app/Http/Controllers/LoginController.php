@@ -28,7 +28,10 @@ class LoginController extends Controller
      */
     public function index(Request $request)
     {
-    	return view('auth/login');
+        if(Auth::check()) {
+    	    return view('home', ['user' => Auth::user()]);
+        }
+           return view('auth/login');
     }
 
     /**
@@ -38,6 +41,8 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
+
+        
 
         $input = $request->all();
 
@@ -50,7 +55,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($input)){
             
-            dd($input);
+            return view('home', ['user' => Auth::user()]);
 
         }else{
             return view('auth/login');
@@ -65,6 +70,18 @@ class LoginController extends Controller
         	
     	// }
     	// echo "nada";
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {   
+        // Desconectamos al usuario
+        Auth::logout();
+        return view('auth/login');
     }
 
    
