@@ -3,7 +3,7 @@ Login page
 ***/
 /* bg color */
 .login {
-  background-color: #364150 !important;
+  background-color: #F3F3F3 !important;
 }
 
 .login .logo {
@@ -14,7 +14,7 @@ Login page
 }
 
 .login .content {
-  background-color: #eceef1;
+  background-color: #FFFFFF;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
@@ -29,7 +29,7 @@ Login page
 }
 
 .login .content h3 {
-  color: #4db3a5;
+  color: #005ea6;
   text-align: center;
   font-size: 28px;
   font-weight: 400 !important;
@@ -53,13 +53,13 @@ Login page
 
 .login .content .form-control {
   border: none;
-  background-color: #dde3ec;
+  background-color: #f3f3f3;
   height: 43px;
   color: #8290a3;
-  border: 1px solid #dde3ec;
+  border: 1px solid #C3C3C3;
 }
 .login .content .form-control:focus, .login .content .form-control:active {
-  border: 1px solid #c3ccda;
+  border: 1px solid #005ea6;
 }
 .login .content .form-control::-moz-placeholder {
   color: #8290a3;
@@ -151,7 +151,7 @@ Login page
 .login .content .form-actions .btn-default {
   font-weight: 600;
   padding: 10px 25px !important;
-  color: #6c7a8d;
+  color: #005ea6;
   background-color: #ffffff;
   border: none;
 }
@@ -177,11 +177,18 @@ Login page
   margin-top: 10px;
 }
 
+.login .content .idioma {
+  margin-left: 5px;
+  margin-top: 10px;
+  color: #8290a3;
+  font-size: 11px;
+}
+
 .login .content .create-account {
   margin: 0 -40px -40px -40px;
   padding: 15px 0 17px 0;
   text-align: center;
-  background-color: #6c7a8d;
+  background-color: #FFFFFF;
   -webkit-border-radius: 0 0 7px 7px;
   -moz-border-radius: 0 0 7px 7px;
   -ms-border-radius: 0 0 7px 7px;
@@ -203,10 +210,10 @@ Login page
 /* footer copyright */
 .login .copyright {
   text-align: center;
-  margin: 0 auto 30px 0;
+  margin: 60px 0px -40px 0px;
   padding: 10px;
   color: #7a8ca5;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 @media (max-width: 440px) {

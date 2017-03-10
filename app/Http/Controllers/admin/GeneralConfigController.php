@@ -17,8 +17,8 @@ class GeneralConfigController extends Controller
      */
     public function index()
     {
-        $configs = Config::all();
-        return view('admin/config/index', ['configs' => $configs]);
+        $config = Config::all()->first();
+        return view('admin/config/index', ['config' => $config]);
     }
 
     /**

@@ -18,9 +18,7 @@ class NotificationController extends Controller
     public function index()
     {
     	$notifications = Notification::all();
-
-        
-        
+       
         return view('admin/notification/index', ['notifications' => $notifications]);
     }
 

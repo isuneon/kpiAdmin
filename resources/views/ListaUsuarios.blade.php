@@ -3,7 +3,7 @@
 @extends('menuside')
 
 @section('content')
-<div class="page-container">
+
 	
 	<!-- BEGIN CONTENT -->
 	<div class="page-content-wrapper">
@@ -1264,5 +1264,5 @@
 		</div>
 	</div>
 	<!-- END QUICK SIDEBAR -->
-</div>
+
 @endsection

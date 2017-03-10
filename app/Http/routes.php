@@ -13,35 +13,24 @@
 
 
 
-
-
-
 Route::get('/', 'LoginController@index');
-Route::post('login', 'LoginController@login');
+Route::match(['get', 'post'], 'login', 'LoginController@login');
+Route::match(['get', 'post'], 'logout', 'LoginController@logout');
 
-/*
-Route::get('/', function() {
- return view('ListaUsuarios');
-});*/
+Route::group(['prefix' => 'dashboard'], function () {
+    
+    //Dashboard
+	Route::get('home', 'DashboardController@index');
 
-// Route::auth();
-Route::get('/home', 'HomeController@index');
+	Route::get('/usuarios', function () {
+	    return view('ListaUsuarios');
+	});
 
-
-// Routes of App
-
-// Route::resource('', '')
-Route::get('/usuarios', function () {
-    return view('ListaUsuarios');
+	// Route of notification
+	Route::resource('notification', 'admin\NotificationController');
+	// Route of config
+	Route::resource('config', 'admin\GeneralConfigController');
+	// Route of email
+	Route::resource('email', 'admin\EmailsController');
 });
 
-
-// Route of notification
-Route::resource('notification', 'admin\NotificationController');
-
-
-// Route of config
-Route::resource('config', 'admin\GeneralConfigController');
-
-// Route of email
-Route::resource('email', 'admin\EmailsController');

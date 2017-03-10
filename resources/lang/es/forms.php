@@ -14,10 +14,13 @@ return [
     */
 
     'create' => 'Crear',
+    'close' => 'Cerrar',
     'update' => 'Actualizar',
+    'edit' => 'Editar',
     'delete' => 'Eliminar',
-    'read' => 'Ver',
+    'show' => 'Ver',
     'cancele' => "Cancelar",
     'options' => "Opciones",
+    'actions' => "Acciones",
 
 ];

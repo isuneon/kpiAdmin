@@ -29,7 +29,7 @@ class LoginController extends Controller
     public function index(Request $request)
     {
         if(Auth::check()) {
-    	    return view('home', ['user' => Auth::user()]);
+            return redirect('dashboard/home');
         }
            return view('auth/login');
     }
@@ -42,8 +42,6 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        
-
         $input = $request->all();
 
         unset($input['_token']);
@@ -55,21 +53,15 @@ class LoginController extends Controller
 
         if(Auth::attempt($input)){
             
-            return view('home', ['user' => Auth::user()]);
+            \Session::push('user', Auth::user());
+
+            return redirect('dashboard/home');
 
         }else{
             return view('auth/login');
         }
 
-        // dd($input);
         
-        // return \DB::select('CALL sp_usuario_clientes(?,?)', array($request->email, $request->password));
-
-        // if(Auth::attempt($input)){
-            
-        	
-    	// }
-    	// echo "nada";
     }
 
     /**

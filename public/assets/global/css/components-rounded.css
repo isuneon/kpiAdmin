@@ -2010,7 +2010,7 @@ Customized Bootstrap Buttons
 
 .btn-primary {
   color: #fff;
-  background-color: #428bca;
+  background-color: #005ea6;
   border-color: #357ebd;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
@@ -3297,6 +3297,13 @@ select.input-sm {
   line-height: 28px;
   padding: 2px 10px;
 }
+
+select.idioma {
+  height: 20px;
+  line-height: 20px;
+  padding: 1px 3px;
+}
+
 
 @media (max-width: 768px) {
   /* 768px */
