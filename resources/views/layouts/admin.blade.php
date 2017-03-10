@@ -24,7 +24,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta content="" name="description"/>
 <meta content="" name="author"/>
-<meta name="_token" content="{{ csrf_token() }}">
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
 <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -43,7 +42,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="/assets/global/css/components-md.css" id="style_components" rel="stylesheet" type="text/css"/>
 <link href="/assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
 <link href="/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
-<link id="style_color" href="/assets/admin/layout/css/themes/blue.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
 <link href="/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
@@ -125,20 +124,17 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="/assets/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="/assets/global/scripts/app.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
 <script src="/assets/admin/pages/scripts/table-advanced.js"></script>
-<script src="/assets/admin/pages/scripts/table-advanced.js"></script>
-
 <script>
 jQuery(document).ready(function() {
-	Metronic.init(); // init metronic core components
-	Layout.init(); // init current layout
-	QuickSidebar.init(); // init quick sidebar
-	Demo.init(); // init demo features
-	TableAdvanced.init();
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+   TableAdvanced.init();
 });
 </script>
 </body>

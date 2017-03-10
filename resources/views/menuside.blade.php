@@ -39,29 +39,29 @@
 				</li>
 				<li class="start ">
 
-					<a href="index.html" class="omenuside">
+					<a href="index.html">
 					<i class="icon-home"></i>Dashboard</a>
 				</li>
 				<li class="heading">
 					<h3 class="uppercase">Administración</h3>
 				</li>
-				<li >
-					<a href="config" class="omenuside">Configuration</a>
+				<li>
+					<a href="/config">Configuración</a>
 				</li>
-				<li >
-					<a href="notification" class="omenuside">Notificación</a>
+				<li>
+					<a href="/notification">Notificación</a>
 				</li>
-				<li >
-					<a class="omenuside">Dias</a>
+				<li>
+					<a href="/notification">Días</a>
 				</li>
-				<li >
-					<a class="omenuside">Horarios dias</a>
+				<li>
+					<a href="/notification">Horarios días</a>
 				</li>
-				<li >
-					<a class="omenuside">Correos</a>
+				<li>
+					<a href="/email">Correos</a>
 				</li>
-				<li >
-					<a class="omenuside">Horarios config</a>
+				<li>
+					<a href="/notification">Horarios config.</a>
 				</li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
