@@ -26,6 +26,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('listaUsuarios' , ['user' => $this->user]);
+        return view('admin/users/index' , ['usuarios' => '']);
     }
 }
