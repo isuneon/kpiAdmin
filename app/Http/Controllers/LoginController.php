@@ -49,7 +49,17 @@ class LoginController extends Controller
         $input['password'] = hash('sha256', $input['password']);
 
         
-         (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
+        $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
+        $result = $result[0];
+
+        dd($result);
+
+        // // Validaciones
+        // if($result->lice_activa == 1){
+        //     if($result->lice_activa == 1)
+        // }
+
+
 
         if(Auth::attempt($input)){
             
