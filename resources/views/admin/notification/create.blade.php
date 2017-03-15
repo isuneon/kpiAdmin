@@ -1,40 +1,18 @@
-@extends('layouts.admin')
-@extends('menu')
-@extends('menuside')
+@extends('template.layout')
 
 @section('content')
 
-			
+
 	<!-- BEGIN CONTENT -->
-	<div class="page-content-wrapper">
-		<div class="page-content">
 			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-							<h4 class="modal-title">Modal title</h4>
-						</div>
-						<div class="modal-body">
-							 Widget settings form goes here
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn blue">Save changes</button>
-							<button type="button" class="btn default" data-dismiss="modal">Close</button>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
+
 			<!-- /.modal -->
 			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-			
+
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			{{ trans('titles.notification') }} 
-			</h3>
+			{{ trans('titles.notification') }}
+		</h3><br>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
@@ -50,12 +28,12 @@
 						<a href="#">Nueva Notificación</a>
 					</li>
 				</ul>
-				
+
 			</div>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">
-				
+
 				<div class="col-md-12 ">
 					<!-- BEGIN SAMPLE FORM PORTLET-->
 					<div class="portlet light bordered">
@@ -64,7 +42,7 @@
 								<i class="icon-pin font-green"></i>
 								<span class="caption-subject bold uppercase"> Datos de notificaciones</span>
 							</div>
-							
+
 						</div>
 						<div class="portlet-body form">
 							<form  method="post" action="/notification/{{$notification->id}}">
@@ -103,14 +81,14 @@
 											<textarea class="form-control" name="sender_cuerpo" id="form_control_3" rows="3">{{$notification->cuerpo}}</textarea>
 											<label class="help-block"></label>
 										</div>
-										
+
 									</div>
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
 									<button type="submit" class="btn blue">{{trans('forms.update')}}</button>
 									<a href="/notification">
-										
+
 									<button type="button" class="btn default">{{trans('forms.cancele')}}</button>
 									</a>
 								</div>
@@ -119,8 +97,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
 <!-- END CONTENT -->
 

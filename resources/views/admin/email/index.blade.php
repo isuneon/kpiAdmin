@@ -1,19 +1,15 @@
-@extends('layouts.admin')
-@extends('menu')
-@extends('menuside')
+@extends('template.layout')
 
 @section('content')
 
-	
-	<!-- BEGIN CONTENT -->
-	<div class="page-content-wrapper">
-		<div class="page-content">
 
-			
+	<!-- BEGIN CONTENT -->
+
+
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
 			{{ trans('titles.email') }}
-			</h3>
+		</h3><br>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 				<div class="page-toolbar">
@@ -62,7 +58,7 @@
 							<table class="table table-striped table-bordered table-hover" id="sample_2">
 							<thead>
 							<tr>
-								
+
 								<th align="center">to_email</th>
 								<th align="center">cc_email</th>
 								<th align="center">bcc_email</th>
@@ -77,10 +73,10 @@
 									<td >{{ $email->to_email }}</td>
 									<td >{{ $email->cc_email }}</td>
 									<td >{{ $email->bcc_email }}</td>
-									
+
 									<td>
 	                  					<div align="center">
-	                  						<a href="/email/{{ $email->id }}/edit">Editar</a> 
+	                  						<a href="/email/{{ $email->id }}/edit">Editar</a>
 	                  					</div>
 									</td>
 								</tr>
@@ -745,7 +741,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+
 	<!-- END QUICK SIDEBAR -->
 @endsection
