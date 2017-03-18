@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
+use Crypt;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 
@@ -52,26 +53,27 @@ class LoginController extends Controller
         $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
         $result = $result[0];
 
-        dd($result);
+       
 
         // // Validaciones
-        // if($result->lice_activa == 1){
-        //     if($result->lice_activa == 1)
-        // }
-
-
-
-        if(Auth::attempt($input)){
-            
-            \Session::push('user', Auth::user());
-
-            return redirect('dashboard/home');
-
-        }else{
-            return view('auth/login');
+        if($result->cliente_activo == 1){
+            if($result->lice_activa == 1){
+                if(date('Y-m-d H:m:s') > $result->fe_fin){
+                    if($result->co_pro == 'KPIADMIN'){
+                        // Inicio de session
+                        if(Auth::attempt($input)){
+                            \Session::push('user', Auth::user());
+                            \Session::push('db', Crypt::encrypt($result->dw_dbname));
+                            return redirect('dashboard/home');
+                        }else{
+                            return view('auth/login');
+                        }
+                    }
+                }
+            }
         }
 
-        
+
     }
 
     /**
