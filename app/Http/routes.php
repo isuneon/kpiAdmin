@@ -11,20 +11,34 @@
 |
 */
 
+//Ahora todas las rutas van dentro del grupo 'web', que es donde se encuentra el Middleware para el lenguaje
+Route::group(['middleware' => ['web']], function () {
 
+//Esto determina el lenguaje dependiendo de la sesión
+Route::get('lang/{lang}', function ($lang) {
+      session(['lang' => $lang]);
+      return \Redirect::back();
+  })->where([
+      'lang' => 'en|es'
+]);
+
+
+/* RUTA DE PRUEBA
+
+Route::get('/SHome', function () {
+		return view('admin/users/create');
+});
+
+*/
 
 Route::get('/', 'LoginController@index');
 Route::match(['get', 'post'], 'login', 'LoginController@login');
 Route::match(['get', 'post'], 'logout', 'LoginController@logout');
 
 Route::group(['prefix' => 'dashboard'], function () {
-    
+
     //Dashboard
 	Route::get('home', 'DashboardController@index');
-
-	Route::get('/usuarios', function () {
-	    return view('ListaUsuarios');
-	});
 
 	// Route of notification
 	Route::resource('notification', 'admin\NotificationController');
@@ -33,4 +47,4 @@ Route::group(['prefix' => 'dashboard'], function () {
 	// Route of email
 	Route::resource('email', 'admin\EmailsController');
 });
-
+});

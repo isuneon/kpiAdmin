@@ -16,4 +16,14 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    /*  Variables para el Login principal (auth/login) */
+    'l_int' => 'Insert your Username and Password.',
+    'USN' => 'Username',
+    'UST' => 'username@test.com',
+    'PSW' => 'Password',
+    'LOGN' => 'Login',
+    'RMBR' => 'Remember me',
+    'FRGT' => 'I forgot my password',
+    'p_int' => 'Enter your e-mail address to reset your password.',
+
 ];

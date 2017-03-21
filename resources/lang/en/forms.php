@@ -14,42 +14,42 @@ return [
     */
 
     /* Variables en la creación de usuarios (admin/users/create)*/
-    'NU'=> 'Nuevo Usuario',
-    'UN' => 'Nombre de Usuario',
-    'UC' => 'Código de Usuario',
-    'FN' => 'Nombre',
-    'LN' => 'Apellido',
-    'UPS' => 'Contraseña',
-    'UPSC' => 'Confirme Contraseña',
-    'CRU' => 'Crear Usuario',
+    'NU'=> 'New User',
+    'UN' => 'Username',
+    'UC' => 'User Code',
+    'FN' => 'First Name',
+    'LN' => 'Last Name',
+    'UPS' => 'Password',
+    'UPSC' => 'Confirm Password',
+    'CRU' => 'Create User',
 
     /* Variables en la edición de usuarios (admin/users/edit)*/
-    'EU' => 'Editar Usuario',
+    'EU' => 'Edit User',
 
     /* Variables en la visualización de usuarios (admin/users/index)*/
-    'NUL' => '...No se ha encontrado ningun usuario...',
-    'NMS' => 'Nombres',
-    'CNTRY' => 'País',
-    'INST' => 'Institución',
-    'OCUP' => 'Ocupación',
-    'C_DT' => 'Fecha Creación',
-    'ACN' => 'Acciones',
+    'NUL' => '...No user was found...',
+    'NMS' => 'Names',
+    'CNTRY' => 'Country',
+    'INST' => 'Institute',
+    'OCUP' => 'Occupation',
+    'C_DT' => 'Creation Date',
+    'ACN' => 'Actions',
 
     /* Variables para la creación de Notificaciones (admin/notifications/create)*/
-    'N_NOTIF' => 'Nueva Notificación',
-    'N_DATA' => 'Datos de notificaciones',
+    'N_NOTIF' => 'New Notification',
+    'N_DATA' => 'Notification data',
 
     /* Variables para la creación de Emails (admin/email/create)*/
-    'E_DATA' => 'Datos de emails',
+    'E_DATA' => 'Email Data',
 
-    'edit' => 'Editar',
-    'create' => 'Crear',
-    'update' => 'Actualizar',
-    'delete' => 'Eliminar',
+    'edit' => 'Edit',
+    'create' => 'Create',
+    'update' => 'Update',
+    'delete' => 'Delete',
     'read' => 'Ver',
-    'cancele' => "Cancelar",
-    'options' => "Opciones",
-    'send' => 'Enviar',
-    'back' => 'Volver',
+    'cancele' => "Cancel",
+    'options' => "Options",
+    'send' => 'Send',
+    'back' => 'Back',
 
 ];

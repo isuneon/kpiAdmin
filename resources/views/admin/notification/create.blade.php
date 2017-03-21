@@ -21,11 +21,11 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="/notification">Notificación</a>
+						<a href="/notification">{{ trans('titles.notification') }}</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="#">Nueva Notificación</a>
+						<a href="#">{{ trans('forms.N_NOTIF') }}</a>
 					</li>
 				</ul>
 
@@ -40,7 +40,7 @@
 						<div class="portlet-title">
 							<div class="caption font-green">
 								<i class="icon-pin font-green"></i>
-								<span class="caption-subject bold uppercase"> Datos de notificaciones</span>
+								<span class="caption-subject bold uppercase">{{ trans('forms.N_DATA') }}</span>
 							</div>
 
 						</div>

@@ -13,7 +13,17 @@ return [
     |
     */
 
-    'failed' => 'Este registro no concuerda con nuestros registros.',
-    'throttle' => 'Muchos intentos de ingreso. Por favor intente de nuevo despues de :seconds segundos.',
+    'failed' => 'Estos datos no concuerdan con nuestros registros.',
+    'throttle' => 'Muchos intentos de ingreso. Por favor, intente de nuevo después de :seconds segundos.',
+
+    /*  Variables para el Login principal (auth/login) */
+    'l_int' => 'Introduzca su Nombre de Usuario y su Contraseña.',
+    'USN' => 'Nombre de Usuario',
+    'UST' => 'usuario@test.com',
+    'PSW' => 'Contraseña',
+    'LOGN' => 'Entrar',
+    'RMBR' => 'Recuérdame',
+    'FRGT' => 'Se me olvidó la Contraseña',
+    'p_int' => 'Ingresa tu correo electrónico para reestablecer su contraseña.',
 
 ];
