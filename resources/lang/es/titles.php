@@ -13,10 +13,13 @@ return [
     |
     */
 
+    's_ini' => 'Inicio de Sesión',
+    'FPS' => '¿Contraseña olvidada?',
     'notification' => 'Notificaciones',
     'config' => 'Configuración general',
-    'emails' => 'Correos Electrónicos',
+    'email' => 'Correos Electrónicos',
     'days' => 'Dias',
     'schedule_days' => "Horarios Dias",
+    'UL' => 'Lista de Usuarios',
 
 ];

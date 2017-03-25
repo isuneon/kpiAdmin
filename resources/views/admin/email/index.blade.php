@@ -76,7 +76,7 @@
 
 									<td>
 	                  					<div align="center">
-	                  						<a href="/email/{{ $email->id }}/edit">Editar</a>
+	                  						<a href="/email/{{ $email->id }}/edit">{{ trans('forms.edit') }}</a>
 	                  					</div>
 									</td>
 								</tr>

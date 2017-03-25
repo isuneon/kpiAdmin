@@ -9,50 +9,50 @@
 
 
 <ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-	<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->		
+	<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
 
 
 	<li>
 		<a href="javascript:;">
 		<i class="icon-home"></i>
-		<span class="title">Admin. Usuarios</span>
+		<span class="title">{{ trans('layout.Ad_Usuarios') }}</span>
 		<span class="selected"></span>
-		<span class="arrow open"></span>
+		<span class="arrow "></span>
 		</a>
 		<ul class="sub-menu">
 			<li>
 				<a href="#" onclick="cargarformulario(1);">
 					<i class="icon-bar-chart"></i>
-					Crear Usuario
+					{{ trans('layout.crear_usu') }}
 				</a>
 			</li>
 			<li>
 				<a href="#" onclick="cargarformulario(2);">
 					<i class="icon-bar-chart"></i>
-					Usuarios
+					{{ trans('layout.lista_usu') }}
 				</a>
-			</li>					
+			</li>
 		</ul>
 	</li>
 
 	<li>
 		<a href="javascript:;">
 		<i class="icon-home"></i>
-		<span class="title">Tablero</span>
+		<span class="title">{{ trans('layout.tablero') }}</span>
 		<span class="selected"></span>
-		<span class="arrow open"></span>
+		<span class="arrow closed"></span>
 		</a>
 		<ul class="sub-menu">
 			<li>
 				<a href="#"  onclick="cargarlistado(1);">
 					<i class="icon-bar-chart"></i>
-					Total Administrativo
+					{{ trans('layout.t_admini') }}
 				</a>
 			</li>
 			<li>
 				<a href="#" >
 					<i class="icon-bulb"></i>
-					New Dashboard #1	
+					New Dashboard #1
 				</a>
 			</li>
 			<li>
@@ -67,7 +67,7 @@
 	<li>
 		<a href="javascript:;">
 		<i class="icon-basket"></i>
-		<span class="title">Ventas</span>
+		<span class="title">{{ trans('layout.ventas') }}</span>
 		<span class="arrow "></span>
 		</a>
 		<ul class="sub-menu">
@@ -102,7 +102,7 @@
 	<li>
 		<a href="javascript:;">
 		<i class="icon-basket"></i>
-		<span class="title">Compras</span>
+		<span class="title">{{ trans('layout.compras') }}</span>
 		<span class="arrow "></span>
 		</a>
 		<ul class="sub-menu">
@@ -132,13 +132,13 @@
 				Product Edit</a>
 			</li>
 		</ul>
-	</li>				
+	</li>
 
 
 	<li>
 		<a href="javascript:;">
 		<i class="icon-basket"></i>
-		<span class="title">Cuentas por Cobrar</span>
+		<span class="title">{{ trans('layout.cpc') }}</span>
 		<span class="arrow "></span>
 		</a>
 		<ul class="sub-menu">
@@ -168,12 +168,12 @@
 				Product Edit</a>
 			</li>
 		</ul>
-	</li>				
+	</li>
 
 	<li>
 		<a href="javascript:;">
 		<i class="icon-basket"></i>
-		<span class="title">Cuentas por Pagar</span>
+		<span class="title">{{ trans('layout.cpp') }}</span>
 		<span class="arrow "></span>
 		</a>
 		<ul class="sub-menu">
@@ -203,5 +203,5 @@
 				Product Edit</a>
 			</li>
 		</ul>
-	</li>								
+	</li>
 </ul>

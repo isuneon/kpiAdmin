@@ -51,7 +51,7 @@
 		</div>
 		<!-- END LOGO -->
 		<!-- BEGIN LOGIN -->
-		
+
 		@yield('content')
 
 
@@ -64,7 +64,7 @@
 	<![endif]
 
 		<script src="assets/global/plugins/respond.min.js"></script>
-		<script src="assets/global/plugins/excanvas.min.js"></script> 
+		<script src="assets/global/plugins/excanvas.min.js"></script>
 	-->
 
 		<script src="assets/global/plugins/jquery.min.js" 								type="text/javascript"></script>
@@ -85,7 +85,7 @@
 		<script src="assets/admin/pages/scripts/login.js" 								type="text/javascript"></script>
 		<!-- END PAGE LEVEL SCRIPTS -->
 
-		<!-- 
+		<!--
 			AÑADIDAS
 				assets/global/plugins/jquery.cokie.min.js
 				assets/global/scripts/sha1.js
@@ -94,7 +94,7 @@
 
 
 		<script>
-			jQuery(document).ready(function() {     
+			jQuery(document).ready(function() {
 			Metronic.init(); // init metronic core components
 			Layout.init(); // init current layout
 			Login.init();

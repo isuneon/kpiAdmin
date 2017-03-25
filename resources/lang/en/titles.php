@@ -13,10 +13,13 @@ return [
     |
     */
 
-    'notification' => 'Notification',
+    's_ini' => 'Login',
+    'FPS' => 'Forgotten password?',
+    'notification' => 'Notifications',
     'config' => 'General Configuration',
-    'emails' => 'Emails',
+    'email' => 'Emails',
     'days' => 'Days',
     'schedule_days' => "Schedule Days",
+    'UL' => 'List of Users',
 
 ];

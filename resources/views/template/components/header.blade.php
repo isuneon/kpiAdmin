@@ -8,7 +8,7 @@
 			</a>
 			<div class="menu-toggler sidebar-toggler ">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-			</div>			
+			</div>
 		</div>
 		<!-- END LOGO -->
 		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -21,21 +21,25 @@
 				<!-- BEGIN NOTIFICATION DROPDOWN -->
 				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 
-				<!-- SELECT LANGUAGE -->	
+				<!-- SELECT LANGUAGE -->
 				<li class="dropdown dropdown-language">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" src="assets/global/img/flags/es.png">						
+					<img alt="" src="{{ trans('Layout.Flag') }}">
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu">
 							<li>
-								<a href="javascript:;">
+								<a href="{{ url('lang', ['en']) }}">
 								<img alt="" src="assets/global/img/flags/us.png">US</a>
 							</li>
+							<li>
+								<a href="{{ url('lang', ['es']) }}">
+								<img alt="" src="assets/global/img/flags/es.png">ES</a>
+							</li>
 						</ul>
-				</li>	
+				</li>
 
-				<!-- ALERTS MESSAGE -->		
+				<!-- ALERTS MESSAGE -->
 				<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 					<i class="icon-bell"></i>
@@ -103,7 +107,7 @@
 				<!-- END TODO DROPDOWN -->
 				<!-- BEGIN USER LOGIN DROPDOWN -->
 				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-			
+
 				<li class="dropdown dropdown-user">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 					<img alt="" class="img-circle" src="assets/admin/layout/img/avatar3_small.jpg"/>
@@ -116,12 +120,12 @@
 					<ul class="dropdown-menu dropdown-menu-default">
 						<li>
 							<a href="extra_profile.html">
-							<i class="icon-user"></i> My Profile </a>
+							<i class="icon-user"></i>{{ trans('Layout.Profile') }}</a>
 						</li>
 
 						<li>
 							<a href="logout">
-							<i class="icon-logout"></i> Cerrar Sesión </a>
+							<i class="icon-logout"></i>{{ trans('Layout.LogOut') }}</a>
 						</li>
 					</ul>
 				</li>

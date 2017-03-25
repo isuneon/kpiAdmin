@@ -4,7 +4,7 @@
 
 
     <div class="box-header">
-        <h4 class="box-title">Listado de Usuarios</h4>
+        <h4 class="box-title">{{ trans('titles.UL') }}</h4>
     </div>
 
 <div class="box-body">
@@ -12,14 +12,14 @@
         <table id="tabla_usuarios" class="display table table-hover" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th style="width:10px">Id</th>
-                    <th>Nombres</th>
+                    <th style="width:10px">ID</th>
+                    <th>{{ trans('forms.NMS') }}</th>
                     <th>Email</th>
-                    <th>País</th>
-                    <th>Institución</th>
-                    <th>Ocupación</th>
-                    <th>Fecha Creado</th>
-                    <th>Acción</th>
+                    <th>{{ trans('forms.CNTRY') }}</th>
+                    <th>{{ trans('forms.INST') }}</th>
+                    <th>{{ trans('forms.OCUP') }}</th>
+                    <th>{{ trans('forms.C_DT') }}</th>
+                    <th>{{ trans('forms.ACN') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
          str_replace('/?', '?', $usuarios->render()
 
     @else
-        <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ningun usuario...</label>  </div>
+        <br/><div class='rechazado'><label style='color:#FA206A'>{{ trans('forms.NUL') }}</label>  </div>
     @endif
 </div>
 
