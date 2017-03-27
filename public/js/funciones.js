@@ -1,8 +1,13 @@
 function cargarformulario(arg)
 //funcion que carga todos los formularios del sistema
 {
-	if(arg==1){ var url = "form_nuevo_usuario"; }
-    if(arg==2){ var url = "listado_usuarios"; }
+    if(arg==1){ var url = "scheduleConfig"; }
+	if(arg==2){ var url = "scheduleDays"; }
+    if(arg==3){ var url = "notification"; }
+    if(arg==4){ var url = "config"; }
+    if(arg==5){ var url = "email"; }
+    if(arg==6){ var url = "day"; }
+    if(arg==7){ var url = "scheduleHours"; }
 
 		//$("#contenido_principal").html($("#cargador_empresa").html());   
 		$("#contenido_principal").html();   

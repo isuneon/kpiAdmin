@@ -3,6 +3,11 @@ function cargarformulario(arg)
 {
 	if(arg==1){ var url = "form_nuevo_usuario"; }
     if(arg==2){ var url = "listado_usuarios"; }
+    if(arg==3){ var url = "notification"; }
+    if(arg==4){ var url = "config"; }
+    if(arg==5){ var url = "email"; }
+    if(arg==6){ var url = "listado_usuarios"; }
+    if(arg==7){ var url = "listado_usuarios"; }
 
 		//$("#contenido_principal").html($("#cargador_empresa").html());   
 		$("#contenido_principal").html();   

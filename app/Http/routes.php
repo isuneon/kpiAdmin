@@ -39,12 +39,19 @@ Route::group(['prefix' => 'dashboard'], function () {
 
     //Dashboard
 	Route::get('home', 'DashboardController@index');
-
-	// Route of notification
-	Route::resource('notification', 'admin\NotificationController');
 	// Route of config
 	Route::resource('config', 'admin\GeneralConfigController');
 	// Route of email
 	Route::resource('email', 'admin\EmailsController');
+	// Route of day
+	Route::resource('day', 'admin\DayController');
+	// Route of scheduleConfig
+	Route::resource('scheduleConfig', 'admin\ScheduleConfigController');
+	// Route of scheduleDays
+	Route::resource('scheduleDays', 'admin\ScheduleDaysController');
+	// Route of scheduleHours
+	Route::resource('scheduleHours', 'admin\ScheduleHoursController');
+	// Route of notification
+	Route::resource('notification', 'admin\NotificationController');
 });
 });

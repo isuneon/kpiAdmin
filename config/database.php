@@ -66,6 +66,21 @@ return [
             'engine' => null,
         ],
 
+        'kpiadmin2' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_ADMIN', '127.0.0.1'),
+            'port' => env('DB_PORT_ADMIN', '3306'),
+            'database' => env('DB_DATABASE_ADMIN', 'db_kpi_admin_clienttwo'),
+            'username' => env('DB_USERNAME_ADMIN', 'root'),
+            'password' => env('DB_PASSWORD_ADMIN', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
+
         
 
         'dbsun' => [

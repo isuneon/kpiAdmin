@@ -150,7 +150,7 @@
 	<script src="../assets/global/plugins/tablas/js/dataTables.responsive.min.js" type="text/javascript"></script>
 	<script src="../assets/global/plugins/tablas/js/responsive.bootstrap.min.js" type="text/javascript"></script>
 	<script src="../assets/global/plugins/tablas/js/responsive.bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/funciones.js"> </script>
+	<script src="/js/funciones.js"> </script>
 
 
 	<script>

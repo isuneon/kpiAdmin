@@ -1,6 +1,6 @@
-@extends('template.layout')
 
-@section('content')
+
+
 
 
 	<!-- BEGIN CONTENT -->
@@ -771,4 +771,4 @@
 			</div>
 
 	<!-- END QUICK SIDEBAR -->
-@endsection
+

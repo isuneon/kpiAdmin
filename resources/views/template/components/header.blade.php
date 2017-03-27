@@ -113,7 +113,7 @@
 					<img alt="" class="img-circle" src="assets/admin/layout/img/avatar3_small.jpg"/>
 					<!-- <span class="username username-hide-on-mobile"></span>-->
 
-					<span class="username username-hide-on-mobile">Usuario Autenticado</span>
+					<span class="username username-hide-on-mobile">{{$user->nombre}}</span>
 					<!-- <php  \Session::get('sNombre');  >  -->
 					<i class="fa fa-angle-down"></i>
 					</a>

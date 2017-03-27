@@ -11,7 +11,7 @@
 
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			{{ trans('titles.notification') }}
+			{{ trans('titles.day') }}
 		</h3><br>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
@@ -22,7 +22,7 @@
 						</button>
 						<ul class="dropdown-menu pull-right" role="menu">
 							<li>
-								<a href="/notification/create">Nueva notificación</a>
+								<a href="/day/create">Nueva notificación</a>
 							</li>
 							<li>
 								<a href="#">Accion B</a>
@@ -50,7 +50,7 @@
 					<div class="portlet box green-haze">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-globe"></i>{{ trans('titles.notification') }}
+								<i class="fa fa-globe"></i>{{ trans('titles.day') }}
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="reload">
@@ -74,16 +74,16 @@
 							</thead>
 
 							<tbody>
-								@foreach ($notifications as $notification)
+								@foreach ($days as $day)
 								    <tr>
-								    <td >{{ $notification->descripcion }}</td>
-								    <td >{{ $notification->sender_user }}</td>
-								    <td >{{ $notification->sender_pass }}</td>
-								    <td >{{ $notification->sender_asunto }}</td>
-								    <td >{{ $notification->sender_cuerpo }}</td>
+								    <td >{{ $day->descripcion }}</td>
+								    <td >{{ $day->sender_user }}</td>
+								    <td >{{ $day->sender_pass }}</td>
+								    <td >{{ $day->sender_asunto }}</td>
+								    <td >{{ $day->sender_cuerpo }}</td>
 
-								    @if($notification->emails != null)
-								      <td > <a href="/email/{{ $notification->emails->id }}/edit"> {{ $notification->emails->id }} </a></td>
+								    @if($day->emails != null)
+								      <td > <a href="/email/{{ $day->emails->id }}/edit"> {{ $day->emails->id }} </a></td>
 								    @else
 								      <td >No posee</td>
 								    @endif
@@ -91,7 +91,7 @@
 
 								    <td>
 								                <div align="center">
-								                  <a href="/notification/{{ $notification->id }}/edit">Editar</a>
+								                  <a href="/day/{{ $day->id }}/edit">Editar</a>
 								                </div>
 								    </td>
 								  </tr>
@@ -135,7 +135,7 @@
 							</li>
 							<li>
 								<a href="#quick_sidebar_tab_3" data-toggle="tab">
-								<i class="icon-info"></i> Notifications </a>
+								<i class="icon-info"></i> days </a>
 							</li>
 							<li>
 								<a href="#quick_sidebar_tab_3" data-toggle="tab">
@@ -711,7 +711,7 @@
 							<h3 class="list-heading">General Settings</h3>
 							<ul class="list-items borderless">
 								<li>
-									 Enable Notifications <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="success" data-on-text="ON" data-off-color="default" data-off-text="OFF">
+									 Enable days <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="success" data-on-text="ON" data-off-color="default" data-off-text="OFF">
 								</li>
 								<li>
 									 Allow Tracking <input type="checkbox" class="make-switch" data-size="small" data-on-color="info" data-on-text="ON" data-off-color="default" data-off-text="OFF">

@@ -6,7 +6,7 @@ return [
     'Profile'=> 'Mi Perfil',
     'LogOut' => 'Cerrar Sesión',
     'Flag' => 'assets/global/img/flags/es.png',
-    'Ad_Usuarios' => 'Administrar Usuarios',
+    'administration' => 'Administración',
     'crear_usu' => 'Crear Usuario',
     'lista_usu' => 'Lista de Usuarios',
     'tablero' => 'Tablero',

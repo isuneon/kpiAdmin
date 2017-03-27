@@ -15,21 +15,52 @@
 	<li>
 		<a href="javascript:;">
 		<i class="icon-home"></i>
-		<span class="title">{{ trans('layout.Ad_Usuarios') }}</span>
+		<span class="title">{{ trans('layout.administration') }}</span>
 		<span class="selected"></span>
 		<span class="arrow "></span>
 		</a>
+
 		<ul class="sub-menu">
 			<li>
-				<a href="#" onclick="cargarformulario(1);">
+				<a href="#" onclick="cargarformulario();">
 					<i class="icon-bar-chart"></i>
-					{{ trans('layout.crear_usu') }}
+					Administración
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="cargarformulario(2);">
+				<a href="#" onclick="cargarformulario(4);">
 					<i class="icon-bar-chart"></i>
-					{{ trans('layout.lista_usu') }}
+					Configuración
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(3);">
+					<i class="icon-bar-chart"></i>
+					Notificación
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(6);">
+					<i class="icon-bar-chart"></i>
+					Días
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(5);">
+					<i class="icon-bar-chart"></i>
+					Horarios días
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(5);">
+					<i class="icon-bar-chart"></i>
+					Correos
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(7);">
+					<i class="icon-bar-chart"></i>
+					Horarios config
 				</a>
 			</li>
 		</ul>
@@ -38,170 +69,23 @@
 	<li>
 		<a href="javascript:;">
 		<i class="icon-home"></i>
-		<span class="title">{{ trans('layout.tablero') }}</span>
+		<span class="title">{{ trans('layout.administration') }}</span>
 		<span class="selected"></span>
-		<span class="arrow closed"></span>
+		<span class="arrow "></span>
 		</a>
 		<ul class="sub-menu">
+		@foreach($roles as $rol)
+			
 			<li>
-				<a href="#"  onclick="cargarlistado(1);">
+				<a href="#" onclick="cargarformulario();">
 					<i class="icon-bar-chart"></i>
-					{{ trans('layout.t_admini') }}
+					{{$rol->name}}
 				</a>
 			</li>
-			<li>
-				<a href="#" >
-					<i class="icon-bulb"></i>
-					New Dashboard #1
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<i class="icon-graph"></i>
-					New Dashboard #2
-				</a>
-			</li>
+		@endforeach
+			
 		</ul>
+		
 	</li>
 
-	<li>
-		<a href="javascript:;">
-		<i class="icon-basket"></i>
-		<span class="title">{{ trans('layout.ventas') }}</span>
-		<span class="arrow "></span>
-		</a>
-		<ul class="sub-menu">
-			<li>
-				<a href="#">
-				<i class="icon-home"></i>
-				Dashboard</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-basket"></i>
-				Orders</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-tag"></i>
-				Order View</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-handbag"></i>
-				Products</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-pencil"></i>
-				Product Edit</a>
-			</li>
-		</ul>
-	</li>
-
-	<li>
-		<a href="javascript:;">
-		<i class="icon-basket"></i>
-		<span class="title">{{ trans('layout.compras') }}</span>
-		<span class="arrow "></span>
-		</a>
-		<ul class="sub-menu">
-			<li>
-				<a href="#">
-				<i class="icon-home"></i>
-				Dashboard</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-basket"></i>
-				Orders</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-tag"></i>
-				Order View</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-handbag"></i>
-				Products</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-pencil"></i>
-				Product Edit</a>
-			</li>
-		</ul>
-	</li>
-
-
-	<li>
-		<a href="javascript:;">
-		<i class="icon-basket"></i>
-		<span class="title">{{ trans('layout.cpc') }}</span>
-		<span class="arrow "></span>
-		</a>
-		<ul class="sub-menu">
-			<li>
-				<a href="#">
-				<i class="icon-home"></i>
-				Dashboard</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-basket"></i>
-				Orders</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-tag"></i>
-				Order View</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-handbag"></i>
-				Products</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-pencil"></i>
-				Product Edit</a>
-			</li>
-		</ul>
-	</li>
-
-	<li>
-		<a href="javascript:;">
-		<i class="icon-basket"></i>
-		<span class="title">{{ trans('layout.cpp') }}</span>
-		<span class="arrow "></span>
-		</a>
-		<ul class="sub-menu">
-			<li>
-				<a href="#">
-				<i class="icon-home"></i>
-				Dashboard</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-basket"></i>
-				Orders</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-tag"></i>
-				Order View</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-handbag"></i>
-				Products</a>
-			</li>
-			<li>
-				<a href="#">
-				<i class="icon-pencil"></i>
-				Product Edit</a>
-			</li>
-		</ul>
-	</li>
 </ul>

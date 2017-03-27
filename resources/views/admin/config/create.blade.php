@@ -1,6 +1,4 @@
-@extends('template.layout')
 
-@section('content')
 
 
 	<!-- BEGIN CONTENT -->
@@ -136,5 +134,3 @@
 
 
 <!-- END CONTENT -->
-
-@endsection

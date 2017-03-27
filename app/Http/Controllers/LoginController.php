@@ -9,6 +9,8 @@ use Auth;
 use Crypt;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use App\models\admin\User;
+
 
 class LoginController extends Controller
 {
@@ -51,9 +53,9 @@ class LoginController extends Controller
 
         
         $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
+
         $result = $result[0];
 
-       
 
         // // Validaciones
         if($result->cliente_activo == 1){
@@ -62,16 +64,36 @@ class LoginController extends Controller
                     if($result->co_pro == 'KPIADMIN'){
                         // Inicio de session
                         if(Auth::attempt($input)){
-                            \Session::push('user', Auth::user());
-                            \Session::push('db', Crypt::encrypt($result->dw_dbname));
-                            return redirect('dashboard/home');
+                            
+                            // dd(Auth::user());
+
+                            // $user = new User;
+                            $user = User::on($result->dw_dbname)->where('co_cli', '=', $result->co_cli)->get();
+
+                            
+                            // $user->setConnection($result->dw_dbname);
+                            // $user->newQuery()->find(1);
+                           
+                            if($user->count() > 0){
+
+                                \Session::push('user', $user);
+                                \Session::push('db', Crypt::encrypt($result->dw_dbname));
+                                return redirect('dashboard/home');
+
+                            }else{
+                                return view('auth/login');
+                            }
                         }else{
                             return view('auth/login');
                         }
                     }
+                    dd('Codigo producto malo');
                 }
+                dd('Fecha vencida');
             }
+            dd('Licensia vencida');
         }
+        dd('cliente inactivo');
 
 
     }
@@ -85,7 +107,8 @@ class LoginController extends Controller
     {   
         // Desconectamos al usuario
         Auth::logout();
-        return view('auth/login');
+        \Session::flush();
+        return redirect('/');
     }
 
    

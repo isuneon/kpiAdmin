@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\models\admin\Config;
+use App\models\admin\ScheduleConfig;
 
-class GeneralConfigController extends Controller
+class ScheduleConfigController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,9 @@ class GeneralConfigController extends Controller
      */
     public function index()
     {
-        $config = Config::all()->first();
-        return view('admin/config/create', ['config' => $config]);
+    	$scheduleConfigs = ScheduleConfig::all();
+       
+        return view('admin/scheduleconfig/index', ['scheduleconfigs' => $scheduleConfigs]);
     }
 
     /**
@@ -28,7 +29,7 @@ class GeneralConfigController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/scheduleconfig/create');
     }
 
     /**
@@ -39,7 +40,17 @@ class GeneralConfigController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+    	$inputs = $request->all();
+    	unset($inputs['_token']);
+
+        $scheduleConfig = ScheduleConfig::create($inputs);
+
+        if($scheduleConfig){
+        	return redirect('/ScheduleConfig');
+        }
+
+        return view('admin/scheduleconfig/create');
     }
 
     /**
@@ -61,8 +72,8 @@ class GeneralConfigController extends Controller
      */
     public function edit($id)
     {
-        $config = Config::find($id);
-        return view('admin/config/create', ['config' => $config]);
+        $scheduleConfig = ScheduleConfig::find($id);
+        return view('admin/scheduleconfig/create', ['ScheduleConfig' => $scheduleConfig]);
     }
 
     /**
@@ -74,31 +85,24 @@ class GeneralConfigController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $config = Config::find($id);
+        $scheduleConfig = ScheduleConfig::find($id);
 
         $inputs = $request->all();
         unset($inputs['_token']);
 
-        $config->defa_cod_proveedor = $inputs['defa_cod_proveedor'];
-        $config->defa_cod_tip_banco = $inputs['defa_cod_tip_banco'];
-        $config->defa_costo = $inputs['defa_costo'];
-        $config->defa_precio = $inputs['defa_precio'];
-        $config->defa_pmaxgan = $inputs['defa_pmaxgan'];
-        $config->defa_p_est_cos = $inputs['defa_p_est_cos'];
-        $config->defa_language = $inputs['defa_language'];
-        $config->defa_moneda = $inputs['defa_moneda'];
-        $config->alert_mont_odp = $inputs['alert_mont_odp'];
-        $config->alert_mont_odc = $inputs['alert_mont_odc'];
-        $config->alert_mont_com = $inputs['alert_mont_com'];
-        $config->alert_mont_fact = $inputs['alert_mont_fact'];
-        $config->alert_mont_cotz = $inputs['alert_mont_cotz'];
-        $config->save();
+        $scheduleConfig->sender_user = $inputs['sender_user'];
+        $scheduleConfig->sender_pass = $inputs['sender_pass'];
+        $scheduleConfig->sender_asunto = $inputs['sender_asunto'];
+        $scheduleConfig->descripcion = $inputs['descripcion'];
+        $scheduleConfig->sender_cuerpo = $inputs['sender_cuerpo'];
+        $scheduleConfig->save();
 
-        if($config){
-            return redirect('/config');
+        if($scheduleConfig){
+            return redirect('/ScheduleConfig');
         }
 
-        return redirect('/config');
+        return redirect('/ScheduleConfig');
+
     }
 
     /**
