@@ -1,6 +1,5 @@
-@extends('template.layout')
 
-@section('content')
+
 
 
 	<!-- BEGIN CONTENT -->
@@ -87,7 +86,7 @@
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
 									<button type="submit" class="btn blue">{{trans('forms.update')}}</button>
-									<a href="/notification">
+									<a href="home">
 
 									<button type="button" class="btn default">{{trans('forms.cancele')}}</button>
 									</a>
@@ -100,4 +99,4 @@
 
 <!-- END CONTENT -->
 
-@endsection
+

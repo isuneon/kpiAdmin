@@ -56,6 +56,8 @@ class LoginController extends Controller
 
         $result = $result[0];
 
+        // dd($result);
+
 
         // // Validaciones
         if($result->cliente_activo == 1){
@@ -70,14 +72,14 @@ class LoginController extends Controller
                             // $user = new User;
                             $user = User::on($result->dw_dbname)->where('co_cli', '=', $result->co_cli)->get();
 
-                            
+                            // dd($user);
                             // $user->setConnection($result->dw_dbname);
                             // $user->newQuery()->find(1);
                            
                             if($user->count() > 0){
 
-                                \Session::push('user', $user);
-                                \Session::push('db', Crypt::encrypt($result->dw_dbname));
+                                \Session::put('user', $user);
+                                \Session::put('db', Crypt::encrypt($result->dw_dbname));
                                 return redirect('dashboard/home');
 
                             }else{

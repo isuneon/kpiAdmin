@@ -10,6 +10,22 @@ use App\models\admin\Config;
 
 class GeneralConfigController extends Controller
 {
+    
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        $this->config = Config::on($this->connection)->get();
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +33,7 @@ class GeneralConfigController extends Controller
      */
     public function index()
     {
-        $config = Config::all()->first();
+        $config = $this->config->first();
         return view('admin/config/create', ['config' => $config]);
     }
 
@@ -61,7 +77,7 @@ class GeneralConfigController extends Controller
      */
     public function edit($id)
     {
-        $config = Config::find($id);
+        $config = $this->config->find($id);
         return view('admin/config/create', ['config' => $config]);
     }
 
@@ -74,7 +90,7 @@ class GeneralConfigController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $config = Config::find($id);
+        $config = $this->config->find($id);
 
         $inputs = $request->all();
         unset($inputs['_token']);
@@ -95,10 +111,10 @@ class GeneralConfigController extends Controller
         $config->save();
 
         if($config){
-            return redirect('/config');
+            return redirect('/dashboard/home');
         }
 
-        return redirect('/config');
+        return redirect('/dashboard/home');
     }
 
     /**

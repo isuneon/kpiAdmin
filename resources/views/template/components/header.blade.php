@@ -124,7 +124,7 @@
 						</li>
 
 						<li>
-							<a href="logout">
+							<a href="/logout">
 							<i class="icon-logout"></i>{{ trans('Layout.LogOut') }}</a>
 						</li>
 					</ul>

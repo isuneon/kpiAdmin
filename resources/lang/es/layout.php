@@ -6,7 +6,16 @@ return [
     'Profile'=> 'Mi Perfil',
     'LogOut' => 'Cerrar Sesión',
     'Flag' => 'assets/global/img/flags/es.png',
+
     'administration' => 'Administración',
+    'configuration' => 'Configuración',
+    'notification' => 'Notificación',
+    'days' => 'Días',
+    'scheduleDays' => 'Horarios Dias',
+    'emails' => 'Correos',
+    'scheduleConfig' => 'Horarios Config',
+
+
     'crear_usu' => 'Crear Usuario',
     'lista_usu' => 'Lista de Usuarios',
     'tablero' => 'Tablero',
@@ -15,4 +24,5 @@ return [
     'compras' => 'Compras',
     'cpc' => 'Cuentas por Cobrar',
     'cpp' => 'Cuentas por Pagar',
+    'modules' => 'Modulos',
 ];

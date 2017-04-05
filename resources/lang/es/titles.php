@@ -16,6 +16,7 @@ return [
     's_ini' => 'Inicio de Sesión',
     'FPS' => '¿Contraseña olvidada?',
     'notification' => 'Notificaciones',
+    'days' => 'Días',
     'config' => 'Configuración general',
     'email' => 'Correos Electrónicos',
     'days' => 'Dias',

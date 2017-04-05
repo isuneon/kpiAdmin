@@ -17,8 +17,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
-        $this->user = \Session::get('user')[0][0];
+        $this->user = session('user')[0];
     }
 
     /**
@@ -28,10 +27,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        dd($this->user);
+        // dd($this->user);
         $roles = $this->user->roles()->get();
-
-
+        
         return view('admin/users/index' , ['user' => $this->user, 'roles' => $roles]);
     }
 }

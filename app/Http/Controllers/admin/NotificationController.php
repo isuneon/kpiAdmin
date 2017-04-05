@@ -10,6 +10,20 @@ use App\models\admin\Notification;
 
 class NotificationController extends Controller
 {
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        $this->notification = Notification::on($this->connection)->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +31,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-    	$notifications = Notification::all();
+    	$notifications = $this->notification->all();
        
-        return view('admin/notification/index', ['notifications' => $notifications]);
+        return view('admin/notification/index', ['notifications' => $notifications, 'user' => $this->user]);
     }
 
     /**
@@ -44,7 +58,7 @@ class NotificationController extends Controller
     	$inputs = $request->all();
     	unset($inputs['_token']);
 
-        $notification = Notification::create($inputs);
+        $notification = $this->notification->create($inputs);
 
         if($notification){
         	return redirect('/notification');
@@ -72,8 +86,9 @@ class NotificationController extends Controller
      */
     public function edit($id)
     {
-        $notification = Notification::find($id);
-        return view('admin/notification/create', ['notification' => $notification]);
+        $notification = $this->notification->find($id);
+        $roles = $this->user->roles()->get();
+        return view('admin/notification/create', ['notification' => $notification, 'user' => $this->user, 'roles' => $roles]);
     }
 
     /**
@@ -85,7 +100,7 @@ class NotificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $notification = Notification::find($id);
+        $notification = $this->notification->find($id);
 
         $inputs = $request->all();
         unset($inputs['_token']);

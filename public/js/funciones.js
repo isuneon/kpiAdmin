@@ -17,6 +17,18 @@ function cargarformulario(arg)
     })
 }
 
+function cargarDatos(route, id)
+//funcion que carga todos los formularios del sistema
+{
+    
+    var url = route + "/" + id + "/edit";
+        //$("#contenido_principal").html($("#cargador_empresa").html());   
+        $("#contenido_principal").html();   
+        $.get(url,function(resul){
+        $("#contenido_principal").html(resul);
+    })
+}
+
 
 $(document).on("click",".pagination li a",function(e){
     //para que la pagina se cargen los elementos

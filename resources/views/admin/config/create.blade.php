@@ -44,7 +44,7 @@
 
 						</div>
 						<div class="portlet-body form">
-							<form  method="post" action="/config/{{$config->id}}">
+							<form  method="post" action="/dashboard/config/{{$config->id}}">
 								{{ csrf_field() }}
 								<input type="hidden" name="_method" value="PUT">
 								<div class="form-body">
