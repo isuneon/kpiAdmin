@@ -1,27 +1,57 @@
-@extends('template.layout')
+<h3 class="page-title">
+    {{ trans('titles.users') }}
+</h3>
+<br>
 
-@section('content')
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">{{ trans('titles.users') }}</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group ">
+            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                Acciones <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a onclick="cargarDatos('user/create')">Registrar Usuario</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<!-- END PAGE HEADER-->
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('forms.NU') }}</div>
-                <div class="panel-body">
-					<!-- BEGIN FORM-->
-                    <div id="notificacion_resul_fanu"></div>
-                    <!-- class="form_entrada" se le agrega esta clase eal formulario para poder identificarla en AJAX   -->
-                  	<form id="form_crea_usuario" class="form-horizontal form_entrada" role="form" method="POST" action="{{ url('/agregar_nuevo_usuario') }}">
+<!-- CREATE FORM -->
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <!-- END EXAMPLE TABLE PORTLET-->
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box green-haze">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>{{ trans('titles.users') }}
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="reload">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form id="form_crea_usuario" class="form-horizontal form_entrada" role="form" method="POST" action="{{ url('user') }}">
                         {!! csrf_field() !!}
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">{{ trans('forms.UN') }}</label>
-
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
-
-                            </div>
-                        </div>
+                       
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">E-Mail</label>
@@ -37,7 +67,7 @@
                             <label class="col-md-4 control-label">{{ trans('forms.UC') }}</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="co_usuario" value="{{ old('co_usuario') }}">
+                                <input type="text" class="form-control" name="co_cli" value="{{ old('co_cli') }}">
 
                             </div>
                         </div>
@@ -85,11 +115,10 @@
                                 </div>
                         </div>
                     </form>
-					<!-- END FORM-->
-
-                </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+
+
+

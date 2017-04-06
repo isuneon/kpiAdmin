@@ -8,6 +8,7 @@ function cargarformulario(arg)
     if(arg==5){ var url = "email"; }
     if(arg==6){ var url = "day"; }
     if(arg==7){ var url = "scheduleHours"; }
+    if(arg==8){ var url = "user"; }
 
 		//$("#contenido_principal").html($("#cargador_empresa").html());   
 		$("#contenido_principal").html();   
@@ -17,11 +18,11 @@ function cargarformulario(arg)
     })
 }
 
-function cargarDatos(route, id)
+function cargarDatos(route)
 //funcion que carga todos los formularios del sistema
 {
     
-    var url = route + "/" + id + "/edit";
+    var url = route;
         //$("#contenido_principal").html($("#cargador_empresa").html());   
         $("#contenido_principal").html();   
         $.get(url,function(resul){
@@ -51,7 +52,7 @@ $(document).on("submit",".form_entrada",function(e){
         var formu=$(this);
         var quien=$(this).attr("id");
         
-        if(quien=="form_crea_usuario"){ var varurl="agregar_nuevo_usuario"; var divresul="notificacion_resul_fanu"; }
+        if(quien=="form_crea_usuario"){ var varurl="user"; var divresul="notificacion_resul_fanu"; }
         if(quien=="form_edita_usuario"){ var varurl="editar_usuario"; var divresul="notificacion_resul_fanu"; }
    
         $("#"+divresul+"").html();

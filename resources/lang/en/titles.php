@@ -16,6 +16,7 @@ return [
     's_ini' => 'Login',
     'FPS' => 'Forgotten password?',
     'notification' => 'Notifications',
+    'users' => 'Users',
     'days' => 'Days',
     'config' => 'General Configuration',
     'email' => 'Emails',

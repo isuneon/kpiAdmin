@@ -24,4 +24,31 @@ class UserClient extends Model implements AuthenticatableContract
 	* @var string
 	*/
 	protected $table = 'usuario_clientes';
+
+
+
+	/**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+                'co_cli',
+                'nombre',
+                'apellido',
+                'password',
+                'descripcion',
+                'activo',
+                'email',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+	
 }

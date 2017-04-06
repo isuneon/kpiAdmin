@@ -83,6 +83,12 @@
 					{{ trans('layout.scheduleConfig') }}
 				</a>
 			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(8);">
+					<i class="icon-bar-chart"></i>
+					{{ trans('layout.users') }}
+				</a>
+			</li>
 		</ul>
 	</li>
 

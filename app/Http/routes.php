@@ -53,5 +53,9 @@ Route::group(['prefix' => 'dashboard'], function () {
 	Route::resource('scheduleHours', 'admin\ScheduleHoursController');
 	// Route of notification
 	Route::resource('notification', 'admin\NotificationController');
+
+	// Route of user
+	Route::resource('user', 'admin\UserController');
+
 });
 });

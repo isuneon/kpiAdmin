@@ -16,11 +16,18 @@ return [
     's_ini' => 'Inicio de Sesión',
     'FPS' => '¿Contraseña olvidada?',
     'notification' => 'Notificaciones',
+    'users' => 'Usuarios',
     'days' => 'Días',
     'config' => 'Configuración general',
     'email' => 'Correos Electrónicos',
     'days' => 'Dias',
     'schedule_days' => "Horarios Dias",
     'UL' => 'Lista de Usuarios',
+
+    // Titulos de campos en tablas
+    'name' => 'Nombre',
+    'surname' => 'Apellido',
+    'email' => 'Correo Electrónico',
+
 
 ];

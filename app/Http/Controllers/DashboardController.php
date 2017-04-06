@@ -30,6 +30,6 @@ class DashboardController extends Controller
         // dd($this->user);
         $roles = $this->user->roles()->get();
         
-        return view('admin/users/index' , ['user' => $this->user, 'roles' => $roles]);
+        return view('home' , ['user' => $this->user, 'roles' => $roles]);
     }
 }

@@ -4,7 +4,7 @@
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
 			<a href="index.html">
-			<img src="assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+			<img src="/assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
 			</a>
 			<div class="menu-toggler sidebar-toggler ">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -30,11 +30,11 @@
 						<ul class="dropdown-menu dropdown-menu">
 							<li>
 								<a href="{{ url('lang', ['en']) }}">
-								<img alt="" src="assets/global/img/flags/us.png">US</a>
+								<img alt="" src="/assets/global/img/flags/us.png">US</a>
 							</li>
 							<li>
 								<a href="{{ url('lang', ['es']) }}">
-								<img alt="" src="assets/global/img/flags/es.png">ES</a>
+								<img alt="" src="/assets/global/img/flags/ve.png">ES</a>
 							</li>
 						</ul>
 				</li>
@@ -110,7 +110,7 @@
 
 				<li class="dropdown dropdown-user">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" class="img-circle" src="assets/admin/layout/img/avatar3_small.jpg"/>
+					<img alt="" class="img-circle" src="/assets/admin/layout/img/avatar3_small.jpg"/>
 					<!-- <span class="username username-hide-on-mobile"></span>-->
 
 					<span class="username username-hide-on-mobile">{{$user->nombre}}</span>

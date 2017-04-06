@@ -5,7 +5,7 @@ return [
     /* Variables para el Layout (en especial la Barra lateral de navegación) */
     'Profile'=> 'Mi Perfil',
     'LogOut' => 'Cerrar Sesión',
-    'Flag' => 'assets/global/img/flags/es.png',
+    'Flag' => '/assets/global/img/flags/ve.png',
 
     'administration' => 'Administración',
     'configuration' => 'Configuración',
@@ -14,6 +14,7 @@ return [
     'scheduleDays' => 'Horarios Dias',
     'emails' => 'Correos',
     'scheduleConfig' => 'Horarios Config',
+    'users' => 'Usuarios',
 
 
     'crear_usu' => 'Crear Usuario',

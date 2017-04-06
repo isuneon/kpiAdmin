@@ -54,9 +54,9 @@ class LoginController extends Controller
         
         $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
 
+        dd($result);
         $result = $result[0];
 
-        // dd($result);
 
 
         // // Validaciones
