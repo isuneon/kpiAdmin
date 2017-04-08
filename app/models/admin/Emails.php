@@ -6,12 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Emails extends Model
 {
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'kpiadmin';
+ 
 
     public $timestamps = false;
 
@@ -21,4 +16,16 @@ class Emails extends Model
 	* @var string
 	*/
 	protected $table = 'admin_correos';
+
+
+	/**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+                'to_email',
+                'cc_email',
+                'bcc_email',
+    ];
 }

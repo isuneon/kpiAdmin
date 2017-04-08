@@ -42,31 +42,25 @@
 
 		<ul class="sub-menu">
 			<li>
-				<a href="#" onclick="cargarformulario();">
-					<i class="icon-bar-chart"></i>
-					{{ trans('layout.administration') }}
-				</a>
-			</li>
-			<li>
-				<a href="#" onclick="cargarformulario(4);">
+				<a href="#" onclick="cargarformulario(1);">
 					<i class="icon-bar-chart"></i>
 					{{ trans('layout.configuration') }}
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="cargarformulario(3);">
+				<a href="#" onclick="cargarformulario(2);">
 					<i class="icon-bar-chart"></i>
 					{{ trans('layout.notification') }}
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="cargarformulario(6);">
+				<a href="#" onclick="cargarformulario(3);">
 					<i class="icon-bar-chart"></i>
 					{{ trans('layout.days') }}
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="cargarformulario(5);">
+				<a href="#" onclick="cargarformulario(4);">
 					<i class="icon-bar-chart"></i>
 					{{ trans('layout.scheduleDays') }}
 				</a>
@@ -78,9 +72,15 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" onclick="cargarformulario(7);">
+				<a href="#" onclick="cargarformulario(6);">
 					<i class="icon-bar-chart"></i>
 					{{ trans('layout.scheduleConfig') }}
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="cargarformulario(7);">
+					<i class="icon-bar-chart"></i>
+					{{ trans('layout.scheduleHours') }}
 				</a>
 			</li>
 			<li>

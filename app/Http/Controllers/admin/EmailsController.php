@@ -10,6 +10,24 @@ use App\models\admin\Emails;
 
 class EmailsController extends Controller
 {
+     
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        \DB::setDefaultConnection($this->connection);
+        $this->emails = Emails::on($this->connection);
+    }
+
+
      /**
      * Display a listing of the resource.
      *
@@ -17,7 +35,7 @@ class EmailsController extends Controller
      */
     public function index()
     {
-        $emails = Emails::all();
+        $emails = $this->emails->get()->all();
         return view('admin/email/index', ['emails' => $emails]);
     }
 
@@ -28,7 +46,8 @@ class EmailsController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('admin/email/create', ['email'=> new Emails()]);
     }
 
     /**
@@ -39,7 +58,16 @@ class EmailsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+        unset($inputs['_token']);
+
+        $email = Emails::create($inputs);
+
+        if($email){
+            return redirect('/email');
+        }
+
+        return view('admin/email/create');
     }
 
     /**
@@ -62,7 +90,7 @@ class EmailsController extends Controller
     public function edit($id)
     {
         $email = Emails::find($id);
-        return view('admin/email/create', ['email' => $email]);
+        return view('admin/email/edit', ['email' => $email]);
     }
 
     /**

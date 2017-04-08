@@ -6,17 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class ScheduleDay extends Model
 {
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'kpiadmin';
+    
 
+	 public $timestamps = false;
+	
     /**
 	* The table associated with the model.
 	*
 	* @var string
 	*/
 	protected $table = 'admin_horarios_dias';
+
+
+	/**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+                'id_horarios',
+                'id_dia',
+                
+    ];
+
 }

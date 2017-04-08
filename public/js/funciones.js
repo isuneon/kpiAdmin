@@ -1,12 +1,12 @@
 function cargarformulario(arg)
 //funcion que carga todos los formularios del sistema
 {
-    if(arg==1){ var url = "scheduleConfig"; }
-	if(arg==2){ var url = "scheduleDays"; }
-    if(arg==3){ var url = "notification"; }
-    if(arg==4){ var url = "config"; }
+    if(arg==1){ var url = "config"; }
+    if(arg==2){ var url = "notification"; }
+    if(arg==3){ var url = "day"; }
+    if(arg==4){ var url = "scheduleDays"; }
     if(arg==5){ var url = "email"; }
-    if(arg==6){ var url = "day"; }
+    if(arg==6){ var url = "scheduleConfig"; }
     if(arg==7){ var url = "scheduleHours"; }
     if(arg==8){ var url = "user"; }
 
@@ -28,6 +28,48 @@ function cargarDatos(route)
         $.get(url,function(resul){
         $("#contenido_principal").html(resul);
     })
+}
+
+function postDatos(route, form)
+{
+    var url = route;
+        //$("#contenido_principal").html($("#cargador_empresa").html());   
+        $("#contenido_principal").html();   
+        
+
+       
+        var posting = $.post( url, $( "#"+form ).serialize());
+ 
+      // Put the results in a div
+      posting.done(function( data ) {
+       
+      });
+}
+
+function putDatos(route, form){
+    var url = route;
+   
+
+
+    $.ajax({
+        url: url,
+        type: 'PUT',
+        data: $("#"+form).serialize(),
+    })
+    .done(function(result) {
+        console.log("success");
+    })
+    .fail(function(result) {
+        console.log("error");
+    })
+    .always(function(result) {
+        console.log("complete");
+    });
+    
+
+
+
+    
 }
 
 

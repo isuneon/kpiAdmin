@@ -6,10 +6,28 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\models\admin\ScheduleHours;
+use App\models\admin\ScheduleHour;
 
 class ScheduleHoursController extends Controller
 {
+    
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        \DB::setDefaultConnection($this->connection);
+        $this->notification = ScheduleHour::on($this->connection);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +35,7 @@ class ScheduleHoursController extends Controller
      */
     public function index()
     {
-    	$scheduleHours = ScheduleHours::all();
+    	$scheduleHours = ScheduleHour::all();
        
         return view('admin/schedulehours/index', ['schedulehours' => $scheduleHours]);
     }
@@ -44,7 +62,7 @@ class ScheduleHoursController extends Controller
     	$inputs = $request->all();
     	unset($inputs['_token']);
 
-        $scheduleHours = ScheduleHours::create($inputs);
+        $scheduleHours = ScheduleHour::create($inputs);
 
         if($scheduleHours){
         	return redirect('/ScheduleHours');
@@ -72,7 +90,7 @@ class ScheduleHoursController extends Controller
      */
     public function edit($id)
     {
-        $scheduleHours = ScheduleHours::find($id);
+        $scheduleHours = ScheduleHour::find($id);
         return view('admin/schedulehours/create', ['ScheduleHours' => $scheduleHours]);
     }
 
@@ -85,7 +103,7 @@ class ScheduleHoursController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $scheduleHours = ScheduleHours::find($id);
+        $scheduleHours = ScheduleHour::find($id);
 
         $inputs = $request->all();
         unset($inputs['_token']);

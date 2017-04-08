@@ -1,7 +1,7 @@
 
 
-
 	<!-- BEGIN CONTENT -->
+
 			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
 			<!-- /.modal -->
@@ -9,7 +9,7 @@
 
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			{{ trans('titles.scheduleDay') }}
+			{{ trans('titles.email') }}
 		</h3><br>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
@@ -19,7 +19,7 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="/scheduleDay">{{ trans('titles.scheduleDay') }}</a>
+						<a href="/notification">{{ trans('titles.notification') }}</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
@@ -38,38 +38,46 @@
 						<div class="portlet-title">
 							<div class="caption font-green">
 								<i class="icon-pin font-green"></i>
-								<span class="caption-subject bold uppercase">{{ trans('forms.N_DATA') }}</span>
+								<span class="caption-subject bold uppercase">{{ trans('forms.E_DATA') }}</span>
 							</div>
 
 						</div>
 						<div class="portlet-body form">
-							<form id="formScheduleDay"  method="post" >
+							<form id="formEmail"  method="put" >
 								{{ csrf_field() }}
 								
 								<div class="form-body">
 									<div class="col-lg-6">
-										<div class="form-group form-md-line-input form-md-floating-label has-warning">
-											<label for="form_control_5">id_horarios</label>
-											<input type="text" class="form-control" name="id_horarios" id="form_control_5" value="{{$scheduleDay->id_horarios}}">
+										<div class="form-group form-md-line-input form-md-floating-label">
+											<label for="form_control_4">to_email</label>
+											<input type="text" name="to_email" class="form-control" id="form_control_4" value="{{$email->to_email}}">
+											<span class="help-block"></span>
+										</div>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-group form-md-line-input form-md-floating-label">
+											<label for="form_control_2">cc_email</label>
+											<input type="text"  class="form-control" name="cc_email" id="form_control_2" value="{{$email->cc_email}}">
 											<label class="help-block"></label>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_1">id_dia</label>
-											<input type="text" name="id_dia" class="form-control" id="form_control_1" value="{{$scheduleDay->id_dia}}">
-											<span class="help-block"></span>
+											<label for="form_control_2">bcc_email</label>
+											<input type="text"  class="form-control" name="bcc_email" id="form_control_2" value="{{$email->bcc_email}}">
+											<label class="help-block"></label>
 										</div>
 									</div>
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<a onclick="postDatos('scheduleDays/{{$scheduleDay->id}}', 'formScheduleDay')" >
-									<button type="button" class="btn btn-circle blue">{{trans('forms.create')}}</button>
-									</a >
+								<a onclick="putDatos('email/{{$email->id}}', 'formEmail')" >
+									<button type="button" class="btn btn-circle blue">{{trans('forms.update')}}</button>
+									
+									</a>
 
-									<a onclick="cargarDatos('scheduleDays')">
-									<button type="button" class="btn btn-circle default">{{trans('forms.cancele')}}</button>
+									<a onclick="cargarDatos('email')">
+									<button type="button" class="btn btn-circle red">{{trans('forms.cancele')}}</button>
 									</a>
 								</div>
 							</form>
@@ -77,6 +85,7 @@
 					</div>
 				</div>
 			</div>
+
 
 <!-- END CONTENT -->
 

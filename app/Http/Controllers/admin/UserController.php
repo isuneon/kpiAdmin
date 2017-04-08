@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\models\admin\User;
 use App\models\client\UserClient;
+use App\models\client\ModuleLice;
 
 
 
@@ -26,6 +27,7 @@ class UserController extends Controller
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
         $this->users = User::on($this->connection)->get();
+        $this->modules = ModuleLice::all();
     }
 
     /**
@@ -47,7 +49,9 @@ class UserController extends Controller
      */
     public function create()
     {
-         return view('admin/users/create');
+        $modules = $this->modules;
+        
+        return view('admin/users/create', ['modules' => $modules]);
     }
 
     /**
@@ -59,6 +63,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->all();
+
+
+        dd($inputs);
+
         unset($inputs['_token']);
 
 

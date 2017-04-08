@@ -10,6 +10,25 @@ use App\models\admin\ScheduleConfig;
 
 class ScheduleConfigController extends Controller
 {
+    
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        \DB::setDefaultConnection($this->connection);
+        $this->scheduleConfig = ScheduleConfig::on($this->connection);
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -73,7 +92,7 @@ class ScheduleConfigController extends Controller
     public function edit($id)
     {
         $scheduleConfig = ScheduleConfig::find($id);
-        return view('admin/scheduleconfig/create', ['ScheduleConfig' => $scheduleConfig]);
+        return view('admin/scheduleconfig/create', ['scheduleConfig' => $scheduleConfig]);
     }
 
     /**

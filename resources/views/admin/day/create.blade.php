@@ -1,6 +1,3 @@
-@extends('template.layout')
-
-@section('content')
 
 
 	<!-- BEGIN CONTENT -->
@@ -11,7 +8,7 @@
 
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			{{ trans('titles.notification') }}
+			{{ trans('titles.days') }}
 		</h3><br>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
@@ -21,7 +18,7 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="/notification">{{ trans('titles.notification') }}</a>
+						<a href="/day">{{ trans('titles.days') }}</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
@@ -30,6 +27,7 @@
 				</ul>
 
 			</div>
+			<br>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">
@@ -45,50 +43,25 @@
 
 						</div>
 						<div class="portlet-body form">
-							<form  method="post" action="/notification/{{$notification->id}}">
+							<form id="formDay" method="post" >
 								{{ csrf_field() }}
-								<input type="hidden" name="_method" value="PUT">
+								
 								<div class="form-body">
 									<div class="col-lg-12">
 										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_4">Sender_User</label>
-											<input type="text" name="sender_user" class="form-control" id="form_control_4" value="{{$notification->sender_user}}">
+											<label for="form_control_4">dia</label>
+											<input type="text" name="dia" class="form-control" id="form_control_4" value="{{$day->dia}}">
 											<span class="help-block"></span>
-										</div>
-										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_2">Sender_pass</label>
-											<input type="text"  class="form-control" name="sender_pass" id="form_control_2" value="{{$notification->sender_pass}}">
-											<label class="help-block"></label>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="form-group form-md-line-input form-md-floating-label has-warning">
-											<label for="form_control_5">Asunto</label>
-											<input type="text" class="form-control" name="sender_asunto" id="form_control_5" value="{{$notification->asunto}}">
-											<label class="help-block"></label>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_1">Descripción</label>
-											<input type="text" name="descripcion" class="form-control" id="form_control_1" value="{{$notification->descripcion}}">
-											<span class="help-block"></span>
-										</div>
-									</div>
-									<div class="col-lg-12">
-										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_3">Cuerpo</label>
-											<textarea class="form-control" name="sender_cuerpo" id="form_control_3" rows="3">{{$notification->cuerpo}}</textarea>
-											<label class="help-block"></label>
-										</div>
-
-									</div>
+										</div>									
+									</div>									
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<button type="submit" class="btn blue">{{trans('forms.update')}}</button>
-									<a href="/notification">
+									<a onclick="postDatos('day', 'formDay')" >
+									<button type="button" class="btn blue">{{trans('forms.create')}}</button>
+									</a>
 
+									<a onclick="cargarDatos('day')">
 									<button type="button" class="btn default">{{trans('forms.cancele')}}</button>
 									</a>
 								</div>
@@ -98,6 +71,4 @@
 				</div>
 			</div>
 
-<!-- END CONTENT -->
 
-@endsection

@@ -14,32 +14,32 @@
 			<h3 class="page-title">
 			{{ trans('titles.config') }}
 		</h3><br>
-			<div class="page-bar">
-				<ul class="page-breadcrumb">
-				<div class="page-toolbar">
-					<div class="btn-group pull-right">
-						<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-						Acciones <i class="fa fa-angle-down"></i>
-						</button>
-						<ul class="dropdown-menu pull-right" role="menu">
-							<li>
-								<a href="/config/create">Nueva notificación</a>
-							</li>
-							<li>
-								<a href="#">Accion B</a>
-							</li>
-							<li>
-								<a href="#">Algo aqui</a>
-							</li>
-							<li class="divider">
-							</li>
-							<li>
-								<a href="#">Separated link</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="#">Home</a>
+			<i class="fa fa-angle-right"></i>
+		</li>
+		<li>
+			<a href="#">{{ trans('titles.days') }}</a>
+		</li>
+	</ul>
+	<div class="page-toolbar">
+		<div class="btn-group ">
+            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                Acciones <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a onclick="cargarDatos('day/create')">Registrar Usuario</a>
+                </li>
+            </ul>
+        </div>
+	</div>
+</div>
+<br>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">

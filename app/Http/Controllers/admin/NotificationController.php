@@ -21,7 +21,8 @@ class NotificationController extends Controller
         $this->middleware('auth');
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
-        $this->notification = Notification::on($this->connection)->get();
+        \DB::setDefaultConnection($this->connection);
+        $this->notification = Notification::on($this->connection);
     }
 
     /**
@@ -31,7 +32,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-    	$notifications = $this->notification->all();
+    	$notifications = $this->notification->get()->all();
        
         return view('admin/notification/index', ['notifications' => $notifications, 'user' => $this->user]);
     }
@@ -43,7 +44,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        return view('admin/notification/create');
+        return view('admin/notification/create', ['notification' => New Notification()]);
     }
 
     /**
@@ -58,10 +59,19 @@ class NotificationController extends Controller
     	$inputs = $request->all();
     	unset($inputs['_token']);
 
-        $notification = $this->notification->create($inputs);
+
+        $notification = Notification::on($this->connection)->first();
+        
+
+    // $notification->setConnection($this->connection);
+
+        // $notification = $this->notification;
+    $data = Notification::on($this->connection)->first()->create($inputs);
+
+        dd($data);
 
         if($notification){
-        	return redirect('/notification');
+        	return redirect('dashboard/notification');
         }
 
         return view('admin/notification/create');

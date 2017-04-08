@@ -9,7 +9,7 @@
 
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			{{ trans('titles.scheduleDay') }}
+			{{ trans('titles.scheduleConfig') }}
 		</h3><br>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
@@ -19,7 +19,7 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="/scheduleDay">{{ trans('titles.scheduleDay') }}</a>
+						<a href="/scheduleConfig">{{ trans('titles.scheduleConfig') }}</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
@@ -43,32 +43,34 @@
 
 						</div>
 						<div class="portlet-body form">
-							<form id="formScheduleDay"  method="post" >
+							<form id="formScheduleConfig"  method="put" action="/scheduleConfig/{{$scheduleConfig->id}}">
 								{{ csrf_field() }}
 								
 								<div class="form-body">
+									
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label has-warning">
 											<label for="form_control_5">id_horarios</label>
-											<input type="text" class="form-control" name="id_horarios" id="form_control_5" value="{{$scheduleDay->id_horarios}}">
+											<input type="text" class="form-control" name="id_horarios" id="form_control_5" value="{{$scheduleConfig->id_horarios}}">
 											<label class="help-block"></label>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label">
 											<label for="form_control_1">id_dia</label>
-											<input type="text" name="id_dia" class="form-control" id="form_control_1" value="{{$scheduleDay->id_dia}}">
+											<input type="text" name="id_dia" class="form-control" id="form_control_1" value="{{$scheduleConfig->id_dia}}">
 											<span class="help-block"></span>
 										</div>
 									</div>
+									
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<a onclick="postDatos('scheduleDays/{{$scheduleDay->id}}', 'formScheduleDay')" >
-									<button type="button" class="btn btn-circle blue">{{trans('forms.create')}}</button>
+									<a onclick="putDatos('scheduleConfigs/{{$scheduleConfig->id}}', 'formScheduleConfig')" >
+									<button type="button" class="btn btn-circle blue">{{trans('forms.update')}}</button>
 									</a >
 
-									<a onclick="cargarDatos('scheduleDays')">
+									<a onclick="cargarDatos('scheduleConfigs')">
 									<button type="button" class="btn btn-circle default">{{trans('forms.cancele')}}</button>
 									</a>
 								</div>
@@ -78,5 +80,4 @@
 				</div>
 			</div>
 
-<!-- END CONTENT -->
 

@@ -11,7 +11,7 @@ class Notification extends Model
      *
      * @var string
      */
-    protected $connection = 'kpiadmin';
+  
 
     /**
 	* The table associated with the model.

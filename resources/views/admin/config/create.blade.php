@@ -12,23 +12,21 @@
 			<h3 class="page-title">
 			{{ trans('titles.config') }}
 		</h3><br>
-			<div class="page-bar">
-				<ul class="page-breadcrumb">
-					<li>
-						<i class="fa fa-home"></i>
-						<a href="/">Config</a>
-						<i class="fa fa-angle-right"></i>
-					</li>
-					<li>
-						<a href="/notification">{{ trans('titles.notification') }}</a>
-						<i class="fa fa-angle-right"></i>
-					</li>
-					<li>
-						<a href="#">{{ trans('forms.N_NOTIF') }}</a>
-					</li>
-				</ul>
 
-			</div>
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="#">Home</a>
+			<i class="fa fa-angle-right"></i>
+		</li>
+		<li>
+			<a href="#">{{ trans('titles.days') }}</a>
+		</li>
+	</ul>
+	
+</div>
+<br>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">
@@ -120,11 +118,7 @@
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<button type="submit" class="btn blue">{{trans('forms.update')}}</button>
-									<a href="/config">
-
-									<button type="button" class="btn default">{{trans('forms.cancele')}}</button>
-									</a>
+									<button type="submit" class="btn btn-circle blue">{{trans('forms.update')}}</button>
 								</div>
 							</form>
 						</div>

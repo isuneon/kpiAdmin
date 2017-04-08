@@ -22,18 +22,7 @@
 						</button>
 						<ul class="dropdown-menu pull-right" role="menu">
 							<li>
-								<a href="/notification/create">Nueva notificación</a>
-							</li>
-							<li>
-								<a href="#">Accion B</a>
-							</li>
-							<li>
-								<a href="#">Algo aqui</a>
-							</li>
-							<li class="divider">
-							</li>
-							<li>
-								<a href="#">Separated link</a>
+								<a onclick="cargarDatos('notification/create')" >Nueva notificación</a>
 							</li>
 						</ul>
 					</div>
@@ -91,7 +80,7 @@
 
 								    <td>
 					                <div align="center">
-					                  <a onclick="cargarDatos('notification', '{{ $notification->id }}')">Editar</a>
+					                  <a onclick="cargarDatos('notification/{{ $notification->id }}/edit')">Editar</a>
 					                </div>
 								    </td>
 								  </tr>

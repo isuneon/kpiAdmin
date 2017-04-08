@@ -24,6 +24,8 @@ class LoginController extends Controller
     protected $redirectTo = null;
 
 
+
+
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +56,7 @@ class LoginController extends Controller
         
         $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
 
-        dd($result);
+        
         $result = $result[0];
 
 
@@ -80,6 +82,7 @@ class LoginController extends Controller
 
                                 \Session::put('user', $user);
                                 \Session::put('db', Crypt::encrypt($result->dw_dbname));
+                                \DB::setDefaultConnection($result->dw_dbname);
                                 return redirect('dashboard/home');
 
                             }else{

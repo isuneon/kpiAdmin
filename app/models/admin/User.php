@@ -11,13 +11,16 @@ class User extends Authenticatable
     use EntrustUserTrait; // add this trait to your user model
     
     protected $primarykey = 'id';
+    
+
     /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
+    * The connection name for the model.
+    *
+    * @var string
+    */
     protected $connection = 'kpiadmin';
 
+    
     /**
 	* The table associated with the model.
 	*

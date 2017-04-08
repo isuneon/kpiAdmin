@@ -109,6 +109,37 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-4 control-label">{{ trans('layout.modules') }}:</label>
+
+                            <div class="col-md-6">
+
+
+
+                                <div class="md-checkbox-inline">
+                                    <div class="row">
+                                    @foreach($modules as $module)
+                                        <div class="col-md-6">
+                                            
+                                    <div class="md-checkbox">
+                                        <input type="checkbox" name="modules[]" value='{{$module->co_modulo}}' id="checkbox{{$module->co_modulo}}" class="md-check">
+                                        <label for="checkbox{{$module->co_modulo}}">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span>
+                                        {{$module->descripcion}} </label>
+                                    </div>
+                                        </div>
+                                    @endforeach
+                                    </div>
+                                </div>
+
+                            
+                                
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                                 <div class="col-md-offset-4 col-md-6">
                                     <button type="submit" class="btn btn-circle blue">{{ trans('forms.CRU') }}</button>
                                     <button type="button" class="btn btn-circle red">{{ trans('forms.cancele') }}</button>

@@ -20,7 +20,7 @@ return [
     'days' => 'Días',
     'config' => 'Configuración general',
     'email' => 'Correos Electrónicos',
-    'days' => 'Dias',
+    'days' => 'Días',
     'schedule_days' => "Horarios Dias",
     'UL' => 'Lista de Usuarios',
 

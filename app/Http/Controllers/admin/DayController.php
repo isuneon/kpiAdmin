@@ -10,6 +10,22 @@ use App\models\admin\Day;
 
 class DayController extends Controller
 {
+    
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        \DB::setDefaultConnection($this->connection);
+        $this->day = Day::on($this->connection);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +33,7 @@ class DayController extends Controller
      */
     public function index()
     {
-    	$days = Day::all();
+    	$days = $this->day->get()->all();
        
         return view('admin/day/index', ['days' => $days]);
     }
@@ -29,7 +45,7 @@ class DayController extends Controller
      */
     public function create()
     {
-        return view('admin/day/create');
+        return view('admin/day/create', ['day'=> new Day()]);
     }
 
     /**
@@ -73,7 +89,7 @@ class DayController extends Controller
     public function edit($id)
     {
         $day = Day::find($id);
-        return view('admin/day/create', ['Day' => $day]);
+        return view('admin/day/edit', ['day' => $day]);
     }
 
     /**
@@ -90,18 +106,14 @@ class DayController extends Controller
         $inputs = $request->all();
         unset($inputs['_token']);
 
-        $day->sender_user = $inputs['sender_user'];
-        $day->sender_pass = $inputs['sender_pass'];
-        $day->sender_asunto = $inputs['sender_asunto'];
-        $day->descripcion = $inputs['descripcion'];
-        $day->sender_cuerpo = $inputs['sender_cuerpo'];
+        $day->dia = $inputs['dia'];
         $day->save();
 
         if($day){
-            return redirect('/Day');
+            return redirect('/day');
         }
 
-        return redirect('/Day');
+        return redirect('/day');
 
     }
 

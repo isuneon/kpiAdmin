@@ -1,6 +1,4 @@
-@extends('template.layout')
 
-@section('content')
 
 
 	<!-- BEGIN CONTENT -->
@@ -46,9 +44,9 @@
 
 						</div>
 						<div class="portlet-body form">
-							<form  method="post" action="/email/{{$email->id}}">
+							<form id="formEmail"  method="post" ">
 								{{ csrf_field() }}
-								<input type="hidden" name="_method" value="PUT">
+								
 								<div class="form-body">
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label">
@@ -74,10 +72,12 @@
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<button type="submit" class="btn blue">{{trans('forms.update')}}</button>
-									<a href="/email">
+									<a onclick="postDatos('email', 'formEmail')" >
+									<button type="button" class="btn btn-circle blue">{{trans('forms.create')}}</button>
+									</a>
 
-									<button type="button" class="btn default">{{trans('forms.cancele')}}</button>
+									<a onclick="cargarDatos('email')">
+									<button type="button" class="btn btn-circle red">{{trans('forms.cancele')}}</button>
 									</a>
 								</div>
 							</form>
@@ -89,4 +89,4 @@
 
 <!-- END CONTENT -->
 
-@endsection
+

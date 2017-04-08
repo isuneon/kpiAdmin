@@ -43,10 +43,11 @@
 
 						</div>
 						<div class="portlet-body form">
-							<form id="formScheduleDay"  method="post" >
+							<form id="formScheduleDay"  method="put" action="/scheduleDay/{{$scheduleDay->id}}">
 								{{ csrf_field() }}
 								
 								<div class="form-body">
+									
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label has-warning">
 											<label for="form_control_5">id_horarios</label>
@@ -61,11 +62,12 @@
 											<span class="help-block"></span>
 										</div>
 									</div>
+									
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<a onclick="postDatos('scheduleDays/{{$scheduleDay->id}}', 'formScheduleDay')" >
-									<button type="button" class="btn btn-circle blue">{{trans('forms.create')}}</button>
+									<a onclick="putDatos('scheduleDays/{{$scheduleDay->id}}', 'formScheduleDay')" >
+									<button type="button" class="btn btn-circle blue">{{trans('forms.update')}}</button>
 									</a >
 
 									<a onclick="cargarDatos('scheduleDays')">
@@ -78,5 +80,4 @@
 				</div>
 			</div>
 
-<!-- END CONTENT -->
 

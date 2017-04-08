@@ -10,6 +10,25 @@ use App\models\admin\ScheduleDay;
 
 class ScheduleDaysController extends Controller
 {
+    
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->user = session('user')[0];
+        $this->connection = \Crypt::decrypt(session('db'));
+        \DB::setDefaultConnection($this->connection);
+        $this->scheduleDay = ScheduleDay::on($this->connection);
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +48,7 @@ class ScheduleDaysController extends Controller
      */
     public function create()
     {
-        return view('admin/scheduleday/create');
+        return view('admin/scheduleday/create', ['scheduleDay' => new ScheduleDay()]);
     }
 
     /**
@@ -73,7 +92,7 @@ class ScheduleDaysController extends Controller
     public function edit($id)
     {
         $scheduleDay = ScheduleDay::find($id);
-        return view('admin/scheduleday/create', ['ScheduleDay' => $scheduleDay]);
+        return view('admin/scheduleday/edit', ['scheduleDay' => $scheduleDay]);
     }
 
     /**
@@ -90,11 +109,9 @@ class ScheduleDaysController extends Controller
         $inputs = $request->all();
         unset($inputs['_token']);
 
-        $scheduleDay->sender_user = $inputs['sender_user'];
-        $scheduleDay->sender_pass = $inputs['sender_pass'];
-        $scheduleDay->sender_asunto = $inputs['sender_asunto'];
-        $scheduleDay->descripcion = $inputs['descripcion'];
-        $scheduleDay->sender_cuerpo = $inputs['sender_cuerpo'];
+        $scheduleDay->id_horarios = $inputs['id_horarios'];
+        $scheduleDay->id_dia = $inputs['id_dia'];
+        
         $scheduleDay->save();
 
         if($scheduleDay){

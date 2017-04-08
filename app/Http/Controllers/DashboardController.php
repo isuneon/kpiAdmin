@@ -18,7 +18,11 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
         $this->user = session('user')[0];
+         $this->connection = \Crypt::decrypt(session('db'));
+        \DB::setDefaultConnection($this->connection);
     }
+
+   
 
     /**
      * Show the application dashboard.

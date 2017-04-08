@@ -22,7 +22,8 @@ class GeneralConfigController extends Controller
         $this->middleware('auth');
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
-        $this->config = Config::on($this->connection)->get();
+        \DB::setDefaultConnection($this->connection);
+        $this->config = Config::on($this->connection);
     }
 
 

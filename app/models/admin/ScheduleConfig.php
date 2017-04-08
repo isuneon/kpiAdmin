@@ -6,12 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ScheduleConfig extends Model
 {
-    /**
-     * The connection name for the model.
-     *
-     * @var string
-     */
-    protected $connection = 'kpiadmin';
+    
+
+	 public $timestamps = false;
 
     /**
 	* The table associated with the model.
