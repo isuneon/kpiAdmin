@@ -62,8 +62,9 @@
 							<thead>
 							<tr>
 
-								<th align="center">Horarios</th>
-								<th align="center">Dias</th>
+								<th align="center">id_horarios</th>
+								<th align="center">Hora_sync</th>
+								<th align="center">activo</th>
 							
 
 								<th align="center"></th>
@@ -72,16 +73,14 @@
 
 							<tbody>
 								@foreach ($schedulehours as $schedulehour)
-								    <tr>
+								   <tr>
 								    <td >{{ $schedulehour->id_horarios }}</td>
-								    <td >{{ $schedulehour->id_dia }}</td>
-								    
-
-
+								    <td >{{ $schedulehour->hora_sync }}</td>
+								    <td >{{ $schedulehour->activo }}</td>
 								    <td>
-								                <div align="center">
-								                  <a onclick="cargarDatos('scheduleHours/{{ $schedulehour->id }}/edit')">Editar</a>
-								                </div>
+						                <div align="center">
+						                  <a onclick="cargarDatos('scheduleHours/{{ $schedulehour->id }}/edit')">Editar</a>
+						                </div>
 								    </td>
 								  </tr>
 								@endforeach

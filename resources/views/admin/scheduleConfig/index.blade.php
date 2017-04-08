@@ -62,8 +62,9 @@
 							<thead>
 							<tr>
 
-								<th align="center">Horarios</th>
-								<th align="center">Dias</th>
+								<th align="center">name</th>
+								<th align="center">Descripción</th>
+								<th align="center">activo</th>
 							
 
 								<th align="center"></th>
@@ -73,8 +74,9 @@
 							<tbody>
 								@foreach ($scheduleconfigs as $scheduleconfig)
 								    <tr>
-								    <td >{{ $scheduleconfig->id_horarios }}</td>
-								    <td >{{ $scheduleconfig->id_dia }}</td>
+								    <td >{{ $scheduleconfig->name }}</td>
+								    <td >{{ $scheduleconfig->descripcion }}</td>
+								    <td >{{ $scheduleconfig->activo }}</td>
 								    
 
 

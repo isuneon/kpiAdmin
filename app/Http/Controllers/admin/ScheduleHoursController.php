@@ -37,7 +37,7 @@ class ScheduleHoursController extends Controller
     {
     	$scheduleHours = ScheduleHour::all();
        
-        return view('admin/schedulehours/index', ['schedulehours' => $scheduleHours]);
+        return view('admin/scheduleHours/index', ['schedulehours' => $scheduleHours]);
     }
 
     /**
@@ -47,7 +47,7 @@ class ScheduleHoursController extends Controller
      */
     public function create()
     {
-        return view('admin/schedulehours/create');
+        return view('admin/scheduleHours/create' , ['scheduleHour' => new ScheduleHour()]);
     }
 
     /**
@@ -68,7 +68,7 @@ class ScheduleHoursController extends Controller
         	return redirect('/ScheduleHours');
         }
 
-        return view('admin/schedulehours/create');
+        return view('admin/scheduleHours/create');
     }
 
     /**
@@ -90,8 +90,8 @@ class ScheduleHoursController extends Controller
      */
     public function edit($id)
     {
-        $scheduleHours = ScheduleHour::find($id);
-        return view('admin/schedulehours/create', ['ScheduleHours' => $scheduleHours]);
+        $scheduleHour = ScheduleHour::find($id);
+        return view('admin/scheduleHours/edit', ['scheduleHour' => $scheduleHour]);
     }
 
     /**

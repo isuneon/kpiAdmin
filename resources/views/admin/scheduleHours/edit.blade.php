@@ -57,12 +57,18 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_1">id_dia</label>
-											<input type="text" name="id_dia" class="form-control" id="form_control_1" value="{{$scheduleHour->id_dia}}">
+											<label for="form_control_1">hora_sync</label>
+											<input type="text" name="hora_sync" class="form-control" id="form_control_1" value="{{$scheduleHour->hora_sync}}">
 											<span class="help-block"></span>
 										</div>
 									</div>
-									
+									<div class="col-lg-6">
+										<div class="form-group form-md-line-input form-md-floating-label">
+											<label for="form_control_1">activo</label>
+											<input type="text" name="activo" class="form-control" id="form_control_1" value="{{$scheduleHour->activo}}">
+											<span class="help-block"></span>
+										</div>
+									</div>
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">

@@ -48,7 +48,7 @@ class ScheduleConfigController extends Controller
      */
     public function create()
     {
-        return view('admin/scheduleconfig/create');
+        return view('admin/scheduleconfig/create' , ['scheduleHour ' => new ScheduleConfig()]);
     }
 
     /**
@@ -92,7 +92,7 @@ class ScheduleConfigController extends Controller
     public function edit($id)
     {
         $scheduleConfig = ScheduleConfig::find($id);
-        return view('admin/scheduleconfig/create', ['scheduleConfig' => $scheduleConfig]);
+        return view('admin/scheduleConfig/edit', ['scheduleConfig' => $scheduleConfig]);
     }
 
     /**
