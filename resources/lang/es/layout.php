@@ -14,6 +14,7 @@ return [
     'scheduleDays' => 'Horarios Dias',
     'emails' => 'Correos',
     'scheduleConfig' => 'Horarios Config',
+    'scheduleHours' => 'Horarios Horas',
     'users' => 'Usuarios',
 
 

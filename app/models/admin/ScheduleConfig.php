@@ -16,4 +16,16 @@ class ScheduleConfig extends Model
 	* @var string
 	*/
 	protected $table = 'admin_horarios_config';
+
+
+	/**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+                'name',
+                'descripcion',
+                
+    ];
 }

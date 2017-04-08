@@ -22,6 +22,10 @@ return [
     'email' => 'Correos Electrónicos',
     'days' => 'Días',
     'schedule_days' => "Horarios Dias",
+    'schedulehour' => "Horarios Horas",
+    'scheduleconfig' => "Horarios Config",
+    'scheduleConfig' => "Horarios Config",
+    'scheduleday' => "Horarios Días",
     'UL' => 'Lista de Usuarios',
 
     // Titulos de campos en tablas

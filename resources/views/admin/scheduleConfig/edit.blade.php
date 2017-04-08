@@ -50,15 +50,15 @@
 									
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label has-warning">
-											<label for="form_control_5">id_horarios</label>
-											<input type="text" class="form-control" name="id_horarios" id="form_control_5" value="{{$scheduleConfig->id_horarios}}">
+											<label for="form_control_5">name</label>
+											<input type="text" class="form-control" name="name" id="form_control_5" value="{{$scheduleConfig->name}}">
 											<label class="help-block"></label>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group form-md-line-input form-md-floating-label">
-											<label for="form_control_1">id_dia</label>
-											<input type="text" name="id_dia" class="form-control" id="form_control_1" value="{{$scheduleConfig->id_dia}}">
+											<label for="form_control_1">descripcion</label>
+											<input type="text" name="descripcion" class="form-control" id="form_control_1" value="{{$scheduleConfig->descripcion}}">
 											<span class="help-block"></span>
 										</div>
 									</div>
@@ -66,11 +66,11 @@
 								</div>
 								<div class="clearfix"></div>
 								<div class="form-actions noborder">
-									<a onclick="putDatos('scheduleConfigs/{{$scheduleConfig->id}}', 'formScheduleConfig')" >
+									<a onclick="putDatos('scheduleConfig/{{$scheduleConfig->id}}', 'formScheduleConfig')" >
 									<button type="button" class="btn btn-circle blue">{{trans('forms.update')}}</button>
 									</a >
 
-									<a onclick="cargarDatos('scheduleConfigs')">
+									<a onclick="cargarDatos('scheduleConfig')">
 									<button type="button" class="btn btn-circle default">{{trans('forms.cancele')}}</button>
 									</a>
 								</div>

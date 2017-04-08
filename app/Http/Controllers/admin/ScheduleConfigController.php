@@ -48,7 +48,7 @@ class ScheduleConfigController extends Controller
      */
     public function create()
     {
-        return view('admin/scheduleconfig/create' , ['scheduleHour ' => new ScheduleConfig()]);
+        return view('admin/scheduleconfig/create' , ['scheduleConfig' => new ScheduleConfig()]);
     }
 
     /**
@@ -66,7 +66,7 @@ class ScheduleConfigController extends Controller
         $scheduleConfig = ScheduleConfig::create($inputs);
 
         if($scheduleConfig){
-        	return redirect('/ScheduleConfig');
+        	return redirect('dashboard/scheduleConfig');
         }
 
         return view('admin/scheduleconfig/create');
@@ -109,18 +109,16 @@ class ScheduleConfigController extends Controller
         $inputs = $request->all();
         unset($inputs['_token']);
 
-        $scheduleConfig->sender_user = $inputs['sender_user'];
-        $scheduleConfig->sender_pass = $inputs['sender_pass'];
-        $scheduleConfig->sender_asunto = $inputs['sender_asunto'];
+        $scheduleConfig->name = $inputs['name'];
         $scheduleConfig->descripcion = $inputs['descripcion'];
-        $scheduleConfig->sender_cuerpo = $inputs['sender_cuerpo'];
+        $scheduleConfig->activo = 1;
         $scheduleConfig->save();
 
         if($scheduleConfig){
-            return redirect('/ScheduleConfig');
+            return redirect('dashboard/scheduleConfig');
         }
 
-        return redirect('/ScheduleConfig');
+        return redirect('dashboard/scheduleConfig');
 
     }
 

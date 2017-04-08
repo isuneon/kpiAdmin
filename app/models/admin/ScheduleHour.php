@@ -14,4 +14,16 @@ class ScheduleHour extends Model
 	* @var string
 	*/
 	protected $table = 'admin_horarios_horas';
+
+	/**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+                'id_horarios',
+                'hora_sync',
+                'activo',
+               
+    ];
 }

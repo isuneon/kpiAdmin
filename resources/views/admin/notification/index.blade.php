@@ -13,21 +13,32 @@
 			<h3 class="page-title">
 			{{ trans('titles.notification') }}
 		</h3><br>
-			<div class="page-bar">
-				<ul class="page-breadcrumb">
-				<div class="page-toolbar">
-					<div class="btn-group pull-right">
-						<button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-						Acciones <i class="fa fa-angle-down"></i>
-						</button>
-						<ul class="dropdown-menu pull-right" role="menu">
-							<li>
-								<a onclick="cargarDatos('notification/create')" >Nueva notificación</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="#">Home</a>
+			<i class="fa fa-angle-right"></i>
+		</li>
+		<li>
+			<a href="#">{{ trans('titles.notification') }}</a>
+		</li>
+	</ul>
+	<div class="page-toolbar">
+		<div class="btn-group ">
+            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                Acciones <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a onclick="cargarDatos('notification/create')">Registrar Usuario</a>
+                </li>
+            </ul>
+        </div>
+	</div>
+</div>
+<br>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">

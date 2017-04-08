@@ -65,7 +65,7 @@ class ScheduleHoursController extends Controller
         $scheduleHours = ScheduleHour::create($inputs);
 
         if($scheduleHours){
-        	return redirect('/ScheduleHours');
+        	return redirect('dashboard/scheduleHours');
         }
 
         return view('admin/scheduleHours/create');
@@ -116,10 +116,10 @@ class ScheduleHoursController extends Controller
         $scheduleHours->save();
 
         if($scheduleHours){
-            return redirect('/ScheduleHours');
+            return redirect('dashboard/scheduleHours');
         }
 
-        return redirect('/ScheduleHours');
+        return redirect('dashboard/scheduleHours');
 
     }
 

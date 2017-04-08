@@ -66,7 +66,7 @@ class ScheduleDaysController extends Controller
         $scheduleDay = ScheduleDay::create($inputs);
 
         if($scheduleDay){
-        	return redirect('/ScheduleDay');
+        	return redirect('dashboard/scheduleDay');
         }
 
         return view('admin/scheduleday/create');
@@ -115,10 +115,10 @@ class ScheduleDaysController extends Controller
         $scheduleDay->save();
 
         if($scheduleDay){
-            return redirect('/ScheduleDay');
+            return redirect('dashboard/scheduleDay');
         }
 
-        return redirect('/ScheduleDay');
+        return redirect('dashboard/scheduleDay');
 
     }
 
