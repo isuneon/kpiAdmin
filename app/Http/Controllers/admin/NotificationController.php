@@ -68,7 +68,7 @@ class NotificationController extends Controller
         // $notification = $this->notification;
     $data = Notification::on($this->connection)->first()->create($inputs);
 
-        dd($data);
+        
 
         if($notification){
         	return redirect('dashboard/notification');

@@ -5,25 +5,37 @@
     <!-- BEGIN LOGIN FORM -->
 
 <div class="container">
- <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-   <div class="panel panel-default">
-     <div class="panel-body">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="col-md-8 col-md-offset-2">
+<div class="panel panel-default">
+<div class="panel-body">
 
 
+        
     <form class="login-form" method="POST" action="{{ url('/login') }}">
-      <div align="center"><h3 class="form-title">{{ trans('titles.s_ini') }}</h3></div>
+
+
+        <div align="center">
+            <h3 class="form-title">{{ trans('titles.s_ini') }}</h3>
+        </div>
+
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span>
-            {{ trans('auth.l_int') }}</span>
+                {{ trans('auth.l_int') }}
+            </span>
         </div>
+
         {{ csrf_field() }}
 
          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-            <label class="control-label visible-ie8 visible-ie9">{{ trans('titles.USN') }}</label>
-            <input id="email" type="email" class="form-control form-control-solid placeholder-no-fix"  name="email" value="{{ trans('auth.UST') }}" autocomplete="off" placeholder="Nombre de Usuario">
+            <div class="form-group form-md-line-input form-md-floating-label has-info">
+                <input id="email" type="email" class="form-control" name="email">
+                <label for="form_control_1">{{ trans('auth.USN') }}</label>        
+            </div>  
+
             @if ($errors->has('email'))
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -32,24 +44,36 @@
         </div>
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label class="control-label visible-ie8 visible-ie9">{{ trans('auth.PSW') }}</label>
-            <input id="password" type="password" class="form-control form-control-solid placeholder-no-fix" name="password" value="123456" autocomplete="off" placeholder="Contraseña">
+   
+            <div class="form-group form-md-line-input form-md-floating-label has-info">
+                <input id="password" type="password" class="form-control" name="password">
+                <label for="form_control_1">{{ trans('auth.PSW') }}</label>        
+            </div>  
+
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>
                 </span>
             @endif
         </div>
+
         <div class="form-actions">
-            <button type="submit" class="btn btn-success uppercase">{{ trans('auth.LOGN') }}</button>
-            <label class="rememberme check">
-            <input type="checkbox" name="remember" /> {{ trans('auth.RMBR') }} </label>
+            <button type="submit" class="btn btn-primary btn-block uppercase">{{ trans('auth.LOGN') }}</button>
+            <div class="md-checkbox-inline">
+                <div class="md-checkbox">
+                    <input type="checkbox" name="remember" id="checkbox6" class="md-check">
+                    <label for="checkbox6">
+                        <span></span>
+                        <span class="check"></span>
+                        <span class="box"></span>{{ trans('auth.RMBR') }} 
+                    </label>
+                </div>
+            </div>                                                            
+
             <div align="right">
               <a href="javascript:;" id="forget-password" class="forget-password">{{ trans('auth.FRGT') }}</a>
             </div>
-        </div>
 
-        <div class="login-options">
         </div>
 
         <div class="dropdown pull-right dropdown-language">
@@ -73,19 +97,39 @@
 
     <!-- END LOGIN FORM -->
 
-  <form class="forget-form" action="index.html" method="post" style="display:none">
-    <div align="center"><h3>{{ trans('titles.FPS') }}</h3></div>
+<form class="forget-form" action="index.html" method="post" style="display:none">
+    <div align="center">
+        <h3>{{ trans('titles.FPS') }}</h3>
+    </div>
+
     <p>
          {{ trans('auth.p_int') }}
     </p>
-    <div class="form-group">
-        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+
+
+    <div class="alert alert-danger display">
+        <button class="close" data-close="alert"></button>
+        <span>El campo email no puede estar vacio</span>
+    </div>      
+
+
+
+
+    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+        <div class="form-group form-md-line-input form-md-floating-label has-info">
+            <input class="form-control" type="text"  name="email">
+            <label for="form_control_1">Email</label>        
+        </div>
+
     </div>
+
     <div class="form-actions">
         <button type="button" id="back-btn" class="btn btn-default">{{ trans('forms.back') }}</button>
-        <button type="submit" class="btn btn-success uppercase pull-right">{{ trans('forms.send') }}</button>
+        <button type="submit" class="btn btn-success blue pull-right">{{ trans('forms.send') }}</button>
     </div>
 </form>
+
+</div>
 
 </div>
 </div>
@@ -94,3 +138,4 @@
 </div>
 
 @endsection
+
