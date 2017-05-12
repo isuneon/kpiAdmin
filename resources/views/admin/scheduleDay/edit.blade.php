@@ -23,7 +23,7 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="#">{{ trans('forms.N_NOTIF') }}</a>
+						<a href="#">{{ trans('titles.edit_scheduleDay') }}</a>
 					</li>
 				</ul>
 

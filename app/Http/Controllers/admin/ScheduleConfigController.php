@@ -66,7 +66,9 @@ class ScheduleConfigController extends Controller
         $scheduleConfig = ScheduleConfig::create($inputs);
 
         if($scheduleConfig){
-        	return redirect('dashboard/scheduleConfig');
+            \Session::flash("scheduleconfigs", trans('validation.form_created'));
+        	$scheduleConfigs = ScheduleConfig::all();
+            return view('admin/scheduleconfig/index', ['scheduleconfigs' => $scheduleConfigs]);
         }
 
         return view('admin/scheduleconfig/create');
@@ -115,7 +117,9 @@ class ScheduleConfigController extends Controller
         $scheduleConfig->save();
 
         if($scheduleConfig){
-            return redirect('dashboard/scheduleConfig');
+            \Session::flash("scheduleconfigs", trans('validation.form_edited'));
+            $scheduleConfigs = ScheduleConfig::all();
+            return view('admin/scheduleconfig/index', ['scheduleconfigs' => $scheduleConfigs]);
         }
 
         return redirect('dashboard/scheduleConfig');

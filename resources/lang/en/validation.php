@@ -110,4 +110,15 @@ return [
 
     'attributes' => [],
 
+
+    // Mensajes de validación para el inicio de sesion
+
+    'code_invalid'      => '
+Your credentials do not correspond to the selected product',
+    'date_expired'      => 'Your license is expired',
+    'license_expired'   => 'Your license is inactive',
+    'client_inactive'   => 'Client inactive',
+    'client_unknown'    => 'The user not found',
+    'unknown'           => 'There is an error unknown'
+
 ];

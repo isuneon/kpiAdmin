@@ -35,14 +35,11 @@ function postDatos(route, form)
     var url = route;
         //$("#contenido_principal").html($("#cargador_empresa").html());   
         $("#contenido_principal").html();   
-        
-
-       
         var posting = $.post( url, $( "#"+form ).serialize());
  
       // Put the results in a div
       posting.done(function( data ) {
-       
+       $("#contenido_principal").html(data); 
       });
 }
 
@@ -57,6 +54,7 @@ function putDatos(route, form){
         data: $("#"+form).serialize(),
     })
     .done(function(result) {
+        $("#contenido_principal").html(result); 
         console.log("success");
     })
     .fail(function(result) {

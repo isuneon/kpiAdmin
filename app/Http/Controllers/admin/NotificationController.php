@@ -59,21 +59,17 @@ class NotificationController extends Controller
     	$inputs = $request->all();
     	unset($inputs['_token']);
 
-
         $notification = Notification::on($this->connection)->first();
-        
-
-    // $notification->setConnection($this->connection);
-
-        // $notification = $this->notification;
-    $data = Notification::on($this->connection)->first()->create($inputs);
+        $data = Notification::on($this->connection)->first()->create($inputs);
 
         
 
         if($notification){
-        	return redirect('dashboard/notification');
+            \Session::flash("notification", trans('validation.form_created'));
+            $notifications = $this->notification->get()->all();
+        	return view('admin/notification/index', ['notifications' => $notifications, 'user' => $this->user]);
         }
-
+        \Session::flash("notification", trans('validation.form_error'));
         return view('admin/notification/create');
     }
 
@@ -123,9 +119,11 @@ class NotificationController extends Controller
         $notification->save();
 
         if($notification){
-            return redirect('/notification');
+            \Session::flash("notification", trans('validation.form_edited'));
+            $notifications = $this->notification->get()->all();
+            return view('admin/notification/index', ['notifications' => $notifications, 'user' => $this->user]);
         }
-
+        
         return redirect('/notification');
 
     }

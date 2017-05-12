@@ -65,7 +65,7 @@ class UserController extends Controller
         $inputs = $request->all();
 
 
-        dd($inputs);
+        
 
         unset($inputs['_token']);
 
@@ -73,7 +73,7 @@ class UserController extends Controller
         $users = User::create($inputs);
        UserClient::create($inputs);
 
-       
+        $inputs['password'] = strtoupper(hash('sha256', $input['password']);
         if($users){
             return redirect('/users');
         }

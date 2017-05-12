@@ -63,7 +63,9 @@ class DayController extends Controller
         $day = Day::create($inputs);
 
         if($day){
-        	return redirect('/Day');
+            \Session::flash("day", trans('validation.form_created'));
+            $days = $this->day->get()->all();
+            return view('admin/day/index', ['days' => $days]);
         }
 
         return view('admin/day/create');
@@ -110,7 +112,9 @@ class DayController extends Controller
         $day->save();
 
         if($day){
-            return redirect('/day');
+            \Session::flash("day", trans('validation.form_edited'));
+            $days = $this->day->get()->all();
+            return view('admin/day/index', ['days' => $days]);
         }
 
         return redirect('/day');

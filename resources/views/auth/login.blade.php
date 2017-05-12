@@ -20,12 +20,18 @@
             <h3 class="form-title">{{ trans('titles.s_ini') }}</h3>
         </div>
 
-        <div class="alert alert-danger display-hide">
-            <button class="close" data-close="alert"></button>
-            <span>
-                {{ trans('auth.l_int') }}
-            </span>
-        </div>
+       
+
+        @if (Session::has('login'))
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button>
+                <span>
+                    {{ session('login') }}
+                </span>
+            </div>
+        @endif
+
+
 
         {{ csrf_field() }}
 

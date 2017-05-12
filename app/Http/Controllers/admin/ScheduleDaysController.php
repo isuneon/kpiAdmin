@@ -66,7 +66,10 @@ class ScheduleDaysController extends Controller
         $scheduleDay = ScheduleDay::create($inputs);
 
         if($scheduleDay){
-        	return redirect('dashboard/scheduleDay');
+            \Session::flash("scheduledays", trans('validation.form_created'));
+            $scheduleDays = ScheduleDay::all();
+            return view('admin/scheduleday/index', ['scheduledays' => $scheduleDays]);
+        	
         }
 
         return view('admin/scheduleday/create');
@@ -115,7 +118,9 @@ class ScheduleDaysController extends Controller
         $scheduleDay->save();
 
         if($scheduleDay){
-            return redirect('dashboard/scheduleDay');
+            \Session::flash("scheduledays", trans('validation.form_edited'));
+            $scheduleDays = ScheduleDay::all();
+            return view('admin/scheduleday/index', ['scheduledays' => $scheduleDays]);
         }
 
         return redirect('dashboard/scheduleDay');

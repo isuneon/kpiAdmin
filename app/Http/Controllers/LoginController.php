@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Session;
 use Auth;
 use Crypt;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -47,58 +48,80 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        $input = $request->all();
 
+        $input = $request->all();
         unset($input['_token']);
 
-        $input['password'] = hash('sha256', $input['password']);
-
         
-        $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
 
-        
-        $result = $result[0];
+        $validator = \Validator::make($request->all(), [
+            'password'  => 'required',
+            'email'      => 'required',
+        ]);
 
-
-
-        // // Validaciones
-        if($result->cliente_activo == 1){
-            if($result->lice_activa == 1){
-                if(date('Y-m-d H:m:s') > $result->fe_fin){
-                    if($result->co_pro == 'KPIADMIN'){
-                        // Inicio de session
-                        if(Auth::attempt($input)){
-                            
-                            // dd(Auth::user());
-
-                            // $user = new User;
-                            $user = User::on($result->dw_dbname)->where('co_cli', '=', $result->co_cli)->get();
-
-                            // dd($user);
-                            // $user->setConnection($result->dw_dbname);
-                            // $user->newQuery()->find(1);
-                           
-                            if($user->count() > 0){
-
-                                \Session::put('user', $user);
-                                \Session::put('db', Crypt::encrypt($result->dw_dbname));
-                                \DB::setDefaultConnection($result->dw_dbname);
-                                return redirect('dashboard/home');
-
-                            }else{
-                                return view('auth/login');
-                            }
-                        }else{
-                            return view('auth/login');
-                        }
-                    }
-                    dd('Codigo producto malo');
-                }
-                dd('Fecha vencida');
-            }
-            dd('Licensia vencida');
+        if ($validator->fails()) {
+            return redirect('auth/login')
+                        ->withErrors($validator);
         }
-        dd('cliente inactivo');
+
+
+
+
+        try {
+            $input['password'] = strtoupper(hash('sha256', $input['password']));
+
+
+            $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
+            
+
+
+
+            if(count($result)>0){
+                $result = $result[0];
+                // // Validaciones
+                if($result->cliente_activo == 1){
+                    if($result->lice_activa == 1){
+                        if(date('Y-m-d H:m:s') > $result->fe_fin){
+                            if($result->co_pro == 'KPIADMIN'){
+                                // Inicio de session
+                                if(Auth::attempt($input)){
+                                    $user = User::on($result->dw_dbname)->where('co_cli', '=', $result->co_cli)->get();
+                                    if($user->count() > 0){
+                                        Session::put('user', $user);
+                                        Session::put('db', Crypt::encrypt($result->dw_dbname));
+                                        \DB::setDefaultConnection($result->dw_dbname);
+                                        return redirect('dashboard/home');
+                                    }else{
+                                        return view('auth/login');
+                                    }
+                                }else{
+                                    Session::flash("login", trans('validation.code_invalid'));
+                                }
+                            }
+                            else
+                                Session::flash("login", trans('validation.code_invalid'));
+                        }
+                        else
+                            Session::flash("login", trans('validation.date_expired'));
+                    }
+                    else
+                        Session::flash("login", trans('validation.license_expired'));
+                }
+                else
+                    Session::flash("login", trans('validation.client_inactive'));
+            }
+            else
+                Session::flash("login", trans('validation.client_unknown'));
+
+        } catch (\Exception $e) {
+            Session::flash("login", trans('validation.unknown'));
+            return view('auth/login');
+
+        }
+
+        // return to de view login, if some validation is wrong
+        return view('auth/login');
+        
 
 
     }
@@ -112,7 +135,7 @@ class LoginController extends Controller
     {   
         // Desconectamos al usuario
         Auth::logout();
-        \Session::flush();
+        Session::flush();
         return redirect('/');
     }
 

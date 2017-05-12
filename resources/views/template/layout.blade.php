@@ -76,7 +76,13 @@
 				<!-- BEGIN PAGE CONTENT INNER -->
 
 				<!-- BEGIN CONTENIDO PRINCIPAL -->
+					
 				    <section class="content"  id="contenido_principal">
+
+				    	
+
+						
+
 				        @yield('content')
 				    </section>
 				<!-- END  CONTENIDO PRINCIPAL -->

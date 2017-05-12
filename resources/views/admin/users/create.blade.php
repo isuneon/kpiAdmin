@@ -1,33 +1,24 @@
 <h3 class="page-title">
-    {{ trans('titles.users') }}
-</h3>
-<br>
+            {{ trans('titles.users') }}
+        </h3><br>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="/">Config</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="/user">{{ trans('titles.users') }}</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">{{ trans('titles.new_user') }}</a>
+                    </li>
+                </ul>
 
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <i class="fa fa-home"></i>
-            <a href="#">Home</a>
-            <i class="fa fa-angle-right"></i>
-        </li>
-        <li>
-            <a href="#">{{ trans('titles.users') }}</a>
-        </li>
-    </ul>
-    <div class="page-toolbar">
-        <div class="btn-group ">
-            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
-                Acciones <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li>
-                    <a onclick="cargarDatos('user/create')">Registrar Usuario</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<br>
+            </div>
+            <br>
 <!-- END PAGE HEADER-->
 
 <!-- CREATE FORM -->

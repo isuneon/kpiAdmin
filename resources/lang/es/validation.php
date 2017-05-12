@@ -110,4 +110,21 @@ return [
 
     'attributes' => [],
 
+    // Mensajes de validación para el inicio de sesion
+
+    'code_invalid'      => 'Sus credenciales no corresponden al producto seleccionado',
+    'date_expired'      => 'Su licencia a caducado',
+    'license_expired'   => 'Licencia Inactiva',
+    'client_inactive'   => 'Cliente Inactivo',
+    'client_unknown'    => 'Usuario no encontrado',
+    'unknown'           => 'Ha ocurrido un error desconocido',
+
+
+    // Mensajes de verificacion de formularios
+
+    'form_created'    => 'Registro guardado Exitosamente',
+    'form_edited'     => 'Registro Editado',
+    'form_error'      => 'Ha ocurrido un error en la petición'
+   
+
 ];

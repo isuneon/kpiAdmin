@@ -24,11 +24,12 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="#">{{ trans('forms.N_NOTIF') }}</a>
+						<a href="#">{{ trans('titles.new_email') }}</a>
 					</li>
 				</ul>
 
 			</div>
+			<br>
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">

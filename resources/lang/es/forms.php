@@ -35,9 +35,6 @@ return [
     'C_DT' => 'Fecha Creación',
     'ACN' => 'Acciones',
 
-    /* Variables para la creación de Notificaciones (admin/notifications/create)*/
-    'N_NOTIF' => 'Nueva Notificación',
-    'N_DATA' => 'Datos de notificaciones',
 
     /* Variables para la creación de Emails (admin/email/create)*/
     'E_DATA' => 'Datos de emails',

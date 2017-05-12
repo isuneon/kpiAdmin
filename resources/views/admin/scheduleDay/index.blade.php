@@ -1,5 +1,12 @@
 
-
+@if (Session::has('scheduledays'))
+<div class="alert alert-success" id="mensaje_principal">
+    <button class="close" data-close="alert"></button>
+    <span>
+        {{ session('scheduledays') }}
+    </span>
+</div>
+@endif
 
 
 	<!-- BEGIN CONTENT -->
@@ -32,7 +39,7 @@
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
                 <li>
-                    <a onclick="cargarDatos('scheduleDays/create')">Registrar Usuario</a>
+                    <a onclick="cargarDatos('scheduleDays/create')">{{ trans('titles.new_scheduleDay') }}</a>
                 </li>
             </ul>
         </div>

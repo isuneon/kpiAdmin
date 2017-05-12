@@ -1,4 +1,11 @@
-
+@if (Session::has('day'))
+<div class="alert alert-success" id="mensaje_principal">
+    <button class="close" data-close="alert"></button>
+    <span>
+        {{ session('day') }}
+    </span>
+</div>
+@endif
 
 
 
@@ -33,7 +40,7 @@
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
                 <li>
-                    <a onclick="cargarDatos('day/create')">Registrar Usuario</a>
+                    <a onclick="cargarDatos('day/create')">{{ trans('titles.new_day') }}</a>
                 </li>
             </ul>
         </div>

@@ -3,6 +3,16 @@
 <!-- /.modal -->
 <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 <!-- BEGIN PAGE HEADER-->
+@if (Session::has('notification'))
+<div class="alert alert-success" id="mensaje_principal">
+    <button class="close" data-close="alert"></button>
+    <span>
+        {{ session('notification') }}
+    </span>
+</div>
+@endif
+
+
 <h3 class="page-title">
 {{ trans('titles.notification') }}
 </h3><br>
@@ -24,7 +34,7 @@
 			</button>
 			<ul class="dropdown-menu pull-right" role="menu">
 				<li>
-					<a onclick="cargarDatos('notification/create')">Registrar Usuario</a>
+					<a onclick="cargarDatos('notification/create')">{{ trans('titles.new_notification') }}</a>
 				</li>
 			</ul>
 		</div>
@@ -57,7 +67,6 @@
 							<th align="center">sender_pass</th>
 							<th align="center">sender_asunto</th>
 							<th align="center">sender_cuerpo</th>
-							<th align="center">emails</th>
 							<th align="center"></th>
 						</tr>
 					</thead>
@@ -69,11 +78,6 @@
 							<td >{{ $notification->sender_pass }}</td>
 							<td >{{ $notification->sender_asunto }}</td>
 							<td >{{ $notification->sender_cuerpo }}</td>
-							@if($notification->emails != null)
-							<td > <a href="/email/{{ $notification->emails->id }}/edit"> {{ $notification->emails->id }} </a></td>
-							@else
-							<td >No posee</td>
-							@endif
 							<td>
 								<div align="center">
 									<a onclick="cargarDatos('notification/{{ $notification->id }}/edit')">Editar</a>

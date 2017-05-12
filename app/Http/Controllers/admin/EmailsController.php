@@ -64,7 +64,9 @@ class EmailsController extends Controller
         $email = Emails::create($inputs);
 
         if($email){
-            return redirect('/email');
+            \Session::flash("email", trans('validation.form_created'));
+            $emails = $this->emails->get()->all();
+            return view('admin/email/index', ['emails' => $emails]);
         }
 
         return view('admin/email/create');
@@ -115,7 +117,9 @@ class EmailsController extends Controller
         $email->save();
 
         if($email){
-            return redirect('/email');
+            \Session::flash("email", trans('validation.form_edited'));
+            $emails = $this->emails->get()->all();
+            return view('admin/email/index', ['emails' => $emails]);
         }
 
         return redirect('/email');

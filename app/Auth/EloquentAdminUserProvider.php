@@ -17,8 +17,6 @@ class EloquentAdminUserProvider extends EloquentUserProvider
         // I think it's best to avoid as much duplication as possible
     	//Se busca el usuario con la funcion en base de datos
     	$user = \DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($credentials['email'], $credentials['password']));
-
-        
     
     	if(empty($user)){
     		return null;
@@ -27,11 +25,6 @@ class EloquentAdminUserProvider extends EloquentUserProvider
         
     	$user = User::find($user[0]->id);
 
-        
-
-        // $user = parent::retrieveByCredentials($credentials);
-
-     	
     	return $user;
     }
 

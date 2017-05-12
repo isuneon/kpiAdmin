@@ -1,3 +1,13 @@
+
+@if (Session::has('scheduleconfigs'))
+<div class="alert alert-success" id="mensaje_principal">
+    <button class="close" data-close="alert"></button>
+    <span>
+        {{ session('scheduleconfigs') }}
+    </span>
+</div>
+@endif
+
 <!-- BEGIN CONTENT -->
 <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 <!-- /.modal -->
@@ -24,7 +34,7 @@
 			</button>
 			<ul class="dropdown-menu pull-right" role="menu">
 				<li>
-					<a onclick="cargarDatos('scheduleConfig/create')">Registrar Usuario</a>
+					<a onclick="cargarDatos('scheduleConfig/create')">{{ trans('titles.new_scheduleConfig') }}</a>
 				</li>
 			</ul>
 		</div>

@@ -24,7 +24,7 @@
 			</button>
 			<ul class="dropdown-menu pull-right" role="menu">
 				<li>
-					<a onclick="cargarDatos('scheduleHours/create')">Registrar Usuario</a>
+					<a onclick="cargarDatos('scheduleHours/create')">{{ trans('titles.new_scheduleHours') }}</a>
 				</li>
 			</ul>
 		</div>

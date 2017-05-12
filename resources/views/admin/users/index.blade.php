@@ -22,7 +22,7 @@
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
                 <li>
-                    <a onclick="cargarDatos('user/create')">Registrar Usuario</a>
+                    <a onclick="cargarDatos('user/create')">{{ trans('titles.new_user') }}</a>
                 </li>
             </ul>
         </div>
@@ -60,7 +60,7 @@
                             <th align="center">sender_asunto</th>
                             <th align="center">sender_cuerpo</th>
                             <th align="center">emails</th>
-                            <th align="center"></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -76,11 +76,7 @@
                             @else
                             <td>No posee</td>
                             @endif
-                            <td>
-                                <div align="center">
-                                    <a onclick="cargarDatos('user/{{ $u->id }}/edit')">Editar</a>
-                                </div>
-                            </td>
+                           
                         </tr>
                         @endforeach
                     </tbody>

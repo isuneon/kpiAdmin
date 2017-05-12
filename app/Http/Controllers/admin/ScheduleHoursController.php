@@ -65,7 +65,9 @@ class ScheduleHoursController extends Controller
         $scheduleHours = ScheduleHour::create($inputs);
 
         if($scheduleHours){
-        	return redirect('dashboard/scheduleHours');
+            \Session::flash("schedulehours", trans('validation.form_created'));
+        	$scheduleHours = ScheduleHour::all();
+            return view('admin/scheduleHours/index', ['schedulehours' => $scheduleHours]);
         }
 
         return view('admin/scheduleHours/create');
@@ -116,7 +118,10 @@ class ScheduleHoursController extends Controller
         $scheduleHours->save();
 
         if($scheduleHours){
-            return redirect('dashboard/scheduleHours');
+            \Session::flash("schedulehours", trans('validation.form_edited'));
+            $scheduleHours = ScheduleHour::all();
+            return view('admin/scheduleHours/index', ['schedulehours' => $scheduleHours]);
+
         }
 
         return redirect('dashboard/scheduleHours');

@@ -1,5 +1,12 @@
 
-
+@if (Session::has('email'))
+<div class="alert alert-success" id="mensaje_principal">
+    <button class="close" data-close="alert"></button>
+    <span>
+        {{ session('email') }}
+    </span>
+</div>
+@endif
 
 	<!-- BEGIN CONTENT -->
 
@@ -27,7 +34,7 @@
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
                 <li>
-                    <a onclick="cargarDatos('email/create')">Registrar Usuario</a>
+                    <a onclick="cargarDatos('email/create')">{{ trans('titles.new_email') }}</a>
                 </li>
             </ul>
         </div>
