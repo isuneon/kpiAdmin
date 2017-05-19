@@ -64,16 +64,10 @@ class UserController extends Controller
     {
         $inputs = $request->all();
 
-
-        
-
         unset($inputs['_token']);
-
-
         $users = User::create($inputs);
-       UserClient::create($inputs);
-
-        $inputs['password'] = strtoupper(hash('sha256', $input['password']);
+        UserClient::create($inputs);
+        $inputs['password'] = strtoupper(hash('sha256', $input['password']));
         if($users){
             return redirect('/users');
         }
