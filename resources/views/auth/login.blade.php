@@ -103,7 +103,7 @@
 
     <!-- END LOGIN FORM -->
 
-<form class="forget-form" action="index.html" method="post" style="display:none">
+<form class="forget-form" action="{{ url('/forget') }}" method="post" style="display:none">
     <div align="center">
         <h3>{{ trans('titles.FPS') }}</h3>
     </div>
@@ -113,17 +113,24 @@
     </p>
 
 
-    <div class="alert alert-danger display">
-        <button class="close" data-close="alert"></button>
-        <span>El campo email no puede estar vacio</span>
-    </div>      
+    @if (Session::has('login'))
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button>
+                <span>
+                    {{ session('login') }}
+                </span>
+            </div>
+        @endif      
+
+
+     {{ csrf_field() }}
 
 
 
 
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         <div class="form-group form-md-line-input form-md-floating-label has-info">
-            <input class="form-control" type="text"  name="email">
+            <input class="form-control validate" type="email"  name="email" required>
             <label for="form_control_1">Email</label>        
         </div>
 

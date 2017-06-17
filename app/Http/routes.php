@@ -24,8 +24,10 @@ Route::group(['middleware' => ['web']], function () {
 
 
 	Route::get('/', ['as' => 'login', 'uses' => 'LoginController@index']);
+	Route::get('/', ['as' => 'login', 'uses' => 'LoginController@index']);
 	
 	Route::match(['get', 'post'], 'login', 'LoginController@login');
+	Route::match(['post'], 'forget', 'LoginController@forget');
 	Route::match(['get', 'post'], 'logout', 'LoginController@logout');
 
 	Route::group(['prefix' => 'dashboard'], function () {

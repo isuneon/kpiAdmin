@@ -73,7 +73,7 @@ class LoginController extends Controller
 
             $result = (\DB::connection('dbsun')->select('CALL sp_usuario_clientes(?,?)', array($input['email'], $input['password'])));
             
-
+            // dd($result);
 
 
             if(count($result)>0){
@@ -85,7 +85,7 @@ class LoginController extends Controller
                             if($result->co_pro == 'KPIADMIN'){
                                 // Inicio de session
                                 if(Auth::attempt($input)){
-                                    $user = User::on($result->dw_dbname)->where('co_cli', '=', $result->co_cli)->get();
+                                    $user = User::on($result->dw_dbname)->where('email', '=', $result->email)->get();
                                     if($user->count() > 0){
                                         Session::put('user', $user);
                                         Session::put('db', Crypt::encrypt($result->dw_dbname));
@@ -137,6 +137,47 @@ class LoginController extends Controller
         Auth::logout();
         Session::flush();
         return redirect('/');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function forget(Request $request)
+    {
+
+
+        $input = $request->all();
+        unset($input['_token']);
+
+        
+
+        $validator = \Validator::make($request->all(), [
+            'email'      => 'required|exists:dbsun.usuario_clientes,email',
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash("login", trans('auth.failed'));
+           
+        }
+
+
+
+
+        try {
+            // Envcio de email
+        } catch (\Exception $e) {
+            Session::flash("login", trans('validation.unknown'));
+            return view('auth/login');
+
+        }
+
+        // return to de view login, if some validation is wrong
+        return view('auth/login');
+        
+
+
     }
 
    
