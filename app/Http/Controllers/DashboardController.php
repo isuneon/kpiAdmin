@@ -16,10 +16,15 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->user = session('user')[0];
-         $this->connection = \Crypt::decrypt(session('db'));
-        \DB::setDefaultConnection($this->connection);
+        try {
+            $this->middleware('auth');
+            $this->user = session('user')[0];
+            $this->connection = \Crypt::decrypt(session('db'));
+            \DB::setDefaultConnection($this->connection);
+            
+        } catch (Exception $e) {
+            return view('auth/login');
+        }
     }
 
    

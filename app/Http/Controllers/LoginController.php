@@ -67,7 +67,7 @@ class LoginController extends Controller
 
 
 
-        try {
+        // try {
             $input['password'] = strtoupper(hash('sha256', $input['password']));
 
 
@@ -85,7 +85,10 @@ class LoginController extends Controller
                             if($result->co_pro == 'KPIADMIN'){
                                 // Inicio de session
                                 if(Auth::attempt($input)){
+
                                     $user = User::on($result->dw_dbname)->where('email', '=', $result->email)->get();
+                                    
+                                   
                                     if($user->count() > 0){
                                         Session::put('user', $user);
                                         Session::put('db', Crypt::encrypt($result->dw_dbname));
@@ -113,14 +116,14 @@ class LoginController extends Controller
             else
                 Session::flash("login", trans('validation.client_unknown'));
 
-        } catch (\Exception $e) {
-            Session::flash("login", trans('validation.unknown'));
-            return view('auth/login');
+        // } catch (\Exception $e) {
+        //     Session::flash("login", trans('validation.unknown'));
+        //     return view('auth/login');
 
-        }
+        // }
 
         // return to de view login, if some validation is wrong
-        return view('auth/login');
+        // return view('auth/login');
         
 
 
@@ -134,9 +137,13 @@ class LoginController extends Controller
     public function logout(Request $request)
     {   
         // Desconectamos al usuario
-        Auth::logout();
-        Session::flush();
-        return redirect('/');
+        try {
+            Auth::logout();
+            Session::flush();
+        } catch (Exception $e) {
+            return redirect('/');
+        }
+            return redirect('/');
     }
 
     /**
