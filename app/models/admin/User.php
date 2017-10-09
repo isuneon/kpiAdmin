@@ -13,12 +13,7 @@ class User extends Authenticatable
     protected $primarykey = 'id';
     
 
-    /**
-    * The connection name for the model.
-    *
-    * @var string
-    */
-    protected $connection = 'kpiadmin';
+   
 
     
     /**

@@ -98,23 +98,23 @@ class LoginController extends Controller
                                         return view('auth/login');
                                     }
                                 }else{
-                                    Session::flash("login", trans('validation.code_invalid'));
+                                    Session::flash("login", trans('validation.code_invalid'));dd(1);
                                 }
                             }
                             else
-                                Session::flash("login", trans('validation.code_invalid'));
+                                {Session::flash("login", trans('validation.code_invalid'));dd(2);}
                         }
                         else
-                            Session::flash("login", trans('validation.date_expired'));
+                            {Session::flash("login", trans('validation.date_expired'));dd(3);}
                     }
                     else
-                        Session::flash("login", trans('validation.license_expired'));
+                        {Session::flash("login", trans('validation.license_expired'));dd(4);}
                 }
                 else
-                    Session::flash("login", trans('validation.client_inactive'));
+                    {Session::flash("login", trans('validation.client_inactive'));dd(5);}
             }
             else
-                Session::flash("login", trans('validation.client_unknown'));
+                {Session::flash("login", trans('validation.client_unknown'));dd(6);}
 
         // } catch (\Exception $e) {
         //     Session::flash("login", trans('validation.unknown'));
