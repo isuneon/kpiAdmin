@@ -8,22 +8,31 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\models\admin\Day;
 
+use App\Repositories\DayRepository;
+
 class DayController extends Controller
 {
     
+    // App\Repositories\DayRepository
+    protected $dayRepository;
+
+
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(DayRepository $dayRepository)
     {
         $this->middleware('auth');
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
         \DB::setDefaultConnection($this->connection);
         $this->day = Day::on($this->connection);
+
+
+        $this->dayRepository = $dayRepository;
     }
 
     /**
@@ -33,9 +42,9 @@ class DayController extends Controller
      */
     public function index()
     {
-    	$days = $this->day->get()->all();
+    	$days = $this->dayRepository->all();
        
-        return view('admin/day/index', ['days' => $days]);
+        return view('admin/day/index', compact("days"));
     }
 
     /**
@@ -45,7 +54,8 @@ class DayController extends Controller
      */
     public function create()
     {
-        return view('admin/day/create', ['day'=> new Day()]);
+        $day = $this->dayRepository->newInstance();
+        return view('admin/day/create', compact("day"));
     }
 
     /**
@@ -60,12 +70,12 @@ class DayController extends Controller
     	$inputs = $request->all();
     	unset($inputs['_token']);
 
-        $day = Day::create($inputs);
+        $day =  $this->dayRepository->create($inputs);
 
         if($day){
             \Session::flash("day", trans('validation.form_created'));
-            $days = $this->day->get()->all();
-            return view('admin/day/index', ['days' => $days]);
+            $days = $this->dayRepository->all();
+            return view('admin/day/index', compact("days"));
         }
 
         return view('admin/day/create');
@@ -90,8 +100,8 @@ class DayController extends Controller
      */
     public function edit($id)
     {
-        $day = Day::find($id);
-        return view('admin/day/edit', ['day' => $day]);
+        $day =  $this->dayRepository->find($id);
+        return view('admin/day/edit', compact("day"));
     }
 
     /**
@@ -103,18 +113,15 @@ class DayController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $day = Day::find($id);
-
         $inputs = $request->all();
-        unset($inputs['_token']);
 
-        $day->dia = $inputs['dia'];
-        $day->save();
+        $day =  $this->dayRepository->find($id);
+        $this->dayRepository->update($day, $inputs);
 
         if($day){
             \Session::flash("day", trans('validation.form_edited'));
-            $days = $this->day->get()->all();
-            return view('admin/day/index', ['days' => $days]);
+            $days = $this->dayRepository->all();
+            return view('admin/day/index', compact("days"));
         }
 
         return redirect('/day');
