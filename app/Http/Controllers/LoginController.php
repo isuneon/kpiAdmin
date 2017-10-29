@@ -114,7 +114,7 @@ class LoginController extends Controller
                     {Session::flash("login", trans('validation.client_inactive'));dd(5);}
             }
             else
-                {Session::flash("login", trans('validation.client_unknown'));dd(6);}
+                {Session::flash("login", trans('validation.client_unknown'));}
 
         // } catch (\Exception $e) {
         //     Session::flash("login", trans('validation.unknown'));
@@ -123,7 +123,7 @@ class LoginController extends Controller
         // }
 
         // return to de view login, if some validation is wrong
-        // return view('auth/login');
+        return view('auth/login');
         
 
 
