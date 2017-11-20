@@ -19,7 +19,7 @@ class GeneralConfigController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
         \DB::setDefaultConnection($this->connection);
@@ -112,7 +112,9 @@ class GeneralConfigController extends Controller
         $config->save();
 
         if($config){
-            return redirect('/dashboard/home');
+            \Session::flash("config", trans('validation.form_edited'));
+           $config = $this->config->first();
+            return view('admin/config/create', compact("config"));
         }
 
         return redirect('/dashboard/home');

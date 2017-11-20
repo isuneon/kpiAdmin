@@ -15,7 +15,7 @@ class ScheduleDay extends Model
 	*
 	* @var string
 	*/
-	protected $table = 'admin_horarios_dias';
+	protected $table = 'admin_horarios';
 
 
 	/**

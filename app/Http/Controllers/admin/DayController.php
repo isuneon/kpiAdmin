@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\models\admin\Day;
+
 
 use App\Repositories\DayRepository;
 
@@ -29,7 +29,7 @@ class DayController extends Controller
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
         \DB::setDefaultConnection($this->connection);
-        $this->day = Day::on($this->connection);
+        
 
 
         $this->dayRepository = $dayRepository;

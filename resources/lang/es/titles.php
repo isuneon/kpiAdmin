@@ -18,7 +18,7 @@ return [
     'notification' => 'Notificaciones',
     'users' => 'Usuarios',
     'days' => 'Días',
-    'config' => 'Configuración general',
+    'config' => 'Parametros Administrativos',
     'email' => 'Correos Electrónicos',
     'days' => 'Días',
     'schedule_days' => "Horarios Dias",

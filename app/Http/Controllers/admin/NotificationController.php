@@ -6,23 +6,30 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\models\admin\Notification;
+
+use App\Repositories\NotificationRepository;
 
 class NotificationController extends Controller
 {
     
+    // App\Repositories\NotificationRepository
+    protected $notificationRepository;
+
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(NotificationRepository $notificationRepository)
     {
         $this->middleware('auth');
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
         \DB::setDefaultConnection($this->connection);
-        $this->notification = Notification::on($this->connection);
+
+        $this->notificationRepository = $notificationRepository;
+        
     }
 
     /**
@@ -32,7 +39,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-    	$notifications = $this->notification->get()->all();
+    	$notifications = $this->notificationRepository->all();
        
         return view('admin/notification/index', ['notifications' => $notifications, 'user' => $this->user]);
     }

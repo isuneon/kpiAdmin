@@ -22,7 +22,7 @@
 		<ul class="sub-menu">
 		@foreach($roles as $rol)
 			<li>
-				<a href="#" onclick="cargarformulario();">
+				<a href="#" >
 					<i class="icon-bar-chart"></i>
 					{{$rol->name}}
 				</a>

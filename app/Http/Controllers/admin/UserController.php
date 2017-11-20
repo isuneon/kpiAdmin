@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->user = session('user')[0];
         $this->connection = \Crypt::decrypt(session('db'));
         $this->users = User::on($this->connection)->get();

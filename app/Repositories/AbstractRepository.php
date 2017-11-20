@@ -126,6 +126,8 @@ class AbstractRepository {
         return $model->delete();
     }
 
+    
+
     /**
      * Force a hard delete on a soft deleted model.
      *
